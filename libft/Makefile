@@ -42,6 +42,7 @@ SOURCES = 			./srcs/ft_isalpha.c \
 					./srcs/get_next_line_utils.c \
 					./srcs/ft_free.c \
 					./srcs/ft_strncpy.c \
+					./srcs/ft_error.c \
 
 BSOURCES = 			./bonus/ft_lstadd_front.c \
 					./bonus/ft_lstnew.c \

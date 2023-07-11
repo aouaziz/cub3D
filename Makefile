@@ -10,6 +10,8 @@ CC = cc
 #FSANITIZE = -fsanitize=address -g
 
 SOURCES =	./srcs/parsing/cub3D.c \
+			./srcs/parsing/parsing.c \
+			./srcs/parsing/lst_functions.c \
 
 NC			= \033[0m
 B_RED		= \033[1;31m
@@ -31,7 +33,7 @@ all : $(NAME)
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "$(BLUE)█\033[0m\c"
 
-$(NAME): compile $(OBJECTS) $(LIBFT)libft.a  done credit
+$(NAME): compile $(OBJECTS) $(LIBFT)libft.a  done 
 	@$(CC) $(READLINE) $(OBJECTS)  $(LIBFT)libft.a -o  $(NAME)
 
 $(LIBFT)libft.a :

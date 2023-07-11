@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:29:22 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/01/31 02:54:56 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/11 11:25:02 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,63 @@ int	ft_atoi(const char *str)
 	if (r > __LONG_LONG_MAX__ && s == -1)
 		return (0);
 	return (r * s);
+}
+static int ft_checkerror(char *str)
+{
+	int i;
+	int j;
+	
+	i = 1;
+	j = 0;
+	if(str[i] != ' ')
+		return (0);
+	i++;
+	while (str[i])
+	{
+		if((str[i] >= '0' && str[i] <= '9') || (str[i] == ','))
+		{
+			if(str[i] == ',')
+				j++;
+			i++;
+		}
+		else
+			return (0);
+	}
+	if(j != 2)
+		return (0);
+	return (1);
+}
+
+int	ft_color_resolution(char *str)
+{
+	int		i;
+	size_t	r;
+	char **tab;
+
+	i = 0;
+	r = 0;
+	if (!str || !ft_checkerror(str))
+		ft_print_error(2);
+	tab =  ft_split(str + 1, ',');
+	r = (ft_atoi_color(tab[0])  * 65536) + ( ft_atoi_color(tab[1]) + 256) + ft_atoi_color(tab[2]);
+	return (r);
+}
+
+int ft_atoi_color(char *str)
+{
+	int i ;
+	size_t	r;
+	
+	i = 0;
+	r = 0;
+	while(str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		r = (r * 10) + (str[i] - '0');
+		i++;
+	}
+	if (r > __LONG_LONG_MAX__ || r > 255)
+		ft_print_error(2);
+	return (r);
 }
