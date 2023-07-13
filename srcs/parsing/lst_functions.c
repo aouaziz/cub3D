@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 10:58:21 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/11 11:26:46 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/13 19:28:04 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cube3D.h"
 
-t_textur	*add_textur_to_list(t_textur *textur, char *content, int type)
+t_cube3d	*add_textur_to_list(t_cube3d *cube, char *content, int type)
 {
 	t_textur	*new;
 
@@ -22,8 +22,9 @@ t_textur	*add_textur_to_list(t_textur *textur, char *content, int type)
 	new->type = type;
 	new->file = content;
 	new->next = NULL;
-	ft_textur_list_add_back(&textur, new);
-	return (textur);
+	ft_textur_list_add_back(&cube->textur, new);
+	cube->i = 1;
+	return (cube);
 }
 
 void	ft_textur_list_add_back(t_textur **lst, t_textur *new)

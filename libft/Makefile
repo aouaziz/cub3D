@@ -57,7 +57,7 @@ B_GREEN		:= \033[1;32m
 GREEN 		:= \033[1;32m
 B_BLUE 		:= \033[1;34m
 BLUE 		:= \033[0;34m
-PURPLE		:= \033[0;35m
+PURPLE		:= \033[1;34m
 B_PURPLE	:= \033[1;35m
 
 OBJECTS = $(SOURCES:.c=.o)
@@ -70,7 +70,7 @@ all: $(NAME)
 %.o: %.c
 #	@echo "$(B_GREEN)Compiling: $(GREEN)$(notdir $<) 🔨$(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(GREEN)█\033[0m\c"
+	@echo "$(PURPLE)█\033[0m\c"
 
 $(NAME): $(OBJECTS)
 	@ar rc $(NAME) $(OBJECTS)

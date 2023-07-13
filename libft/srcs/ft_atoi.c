@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:29:22 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/11 11:25:02 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/13 20:28:35 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,19 @@ int	ft_atoi(const char *str)
 }
 static int ft_checkerror(char *str)
 {
-	int i;
 	int j;
-	
-	i = 1;
 	j = 0;
-	if(str[i] != ' ')
-		return (0);
-	i++;
-	while (str[i])
+
+	while (*str)
 	{
-		if((str[i] >= '0' && str[i] <= '9') || (str[i] == ','))
+		if((*str >= '0' && *str <= '9') || (*str == ','))
 		{
-			if(str[i] == ',')
+			if(*str == ',')
 				j++;
-			i++;
 		}
-		else
+		else if(ft_isalpha(*str))
 			return (0);
+		str++;
 	}
 	if(j != 2)
 		return (0);
@@ -85,8 +80,8 @@ int	ft_color_resolution(char *str)
 	r = 0;
 	if (!str || !ft_checkerror(str))
 		ft_print_error(2);
-	tab =  ft_split(str + 1, ',');
-	r = (ft_atoi_color(tab[0])  * 65536) + ( ft_atoi_color(tab[1]) + 256) + ft_atoi_color(tab[2]);
+	tab =  ft_split((ft_strtrim(str," ") ), ',');
+	r = (ft_atoi_color(tab[0])  * 65536) + ( ft_atoi_color(tab[1]) * 256) + ft_atoi_color(tab[2]);
 	return (r);
 }
 
@@ -97,6 +92,8 @@ int ft_atoi_color(char *str)
 	
 	i = 0;
 	r = 0;
+	if(str[i] == '-')
+		ft_print_error(2);
 	while(str[i] == '+')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
@@ -107,4 +104,30 @@ int ft_atoi_color(char *str)
 	if (r > __LONG_LONG_MAX__ || r > 255)
 		ft_print_error(2);
 	return (r);
+}
+int	ft_atoi_resolution(const char *str)
+{
+	int		i;
+	int		s;
+	size_t	r;
+
+	i = ft_checkspace(str);
+	r = 0;
+	s = 1;
+	if (!str)
+		return (0);
+	if (str[i] == '-')
+		ft_print_error(2);
+	while(str[i] == '+')
+			i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		r = (r * 10) + (str[i] - '0');
+		i++;
+	}
+	if (r > __LONG_LONG_MAX__ && s == 1)
+		return (-1);
+	if (r > __LONG_LONG_MAX__ && s == -1)
+		return (0);
+	return (r * s);
 }

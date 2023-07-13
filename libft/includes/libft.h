@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:48:06 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/11 11:24:18 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/11 16:53:07 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,5 @@ int	ft_strlen_array(char **array);
 int	ft_atoi_color(char *str);
 int	ft_color_resolution(char *str);
 void	ft_print_error(int e);
+int	ft_atoi_resolution(const char *str);
 #endif

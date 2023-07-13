@@ -31,7 +31,7 @@ all : $(NAME)
 %.o: %.c
 #	@echo "$(B_GREEN)Compiling: $(GREEN)$(notdir $<) 🔨$(NC)"
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(BLUE)█\033[0m\c"
+	@echo "$(PURPLE)█\033[0m\c"
 
 $(NAME): compile $(OBJECTS) $(LIBFT)libft.a  done 
 	@$(CC) $(READLINE) $(OBJECTS)  $(LIBFT)libft.a -o  $(NAME)
