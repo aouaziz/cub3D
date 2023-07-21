@@ -6,11 +6,12 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 10:58:21 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/13 19:28:04 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/21 15:46:26 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cube3D.h"
+
+#include "../../../includes/cub3d.h"
 
 t_cube3d	*add_textur_to_list(t_cube3d *cube, char *content, int type)
 {
@@ -50,4 +51,20 @@ t_textur	*ft_textur_lst_last(t_textur *lst)
 		lst = lst->next;
 	}
 	return (lst);
+}
+
+
+int ft_lstsize_textur(t_textur *lst)
+{
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
