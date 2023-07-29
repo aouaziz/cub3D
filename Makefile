@@ -1,61 +1,65 @@
-NAME = cub3D
+NAME = Cub3d
 
-LIBFT = ./libft/
+MLX_DIR = minilibx-linux
 
+LIBFT = ./parsing/libft/
 
-CFLAGS = -Wall -Wextra -Werror
+MLX = libmlx.a 
 
-CC = cc
-
+CC = gcc
 #FSANITIZE = -fsanitize=address -g
 
-SOURCES =	./srcs/parsing/cub3D.c \
-			./srcs/parsing/parsing.c \
-			./srcs/parsing/lst_functions.c \
+CFLAGS = -Wall -Wextra -Werror 
 
-NC			= \033[0m
-B_RED		= \033[1;31m
-RED 		= \033[0;31m
-PURPLE		= \033[0;35m
-B_PURPLE	= \033[1;35m
-PURPLE		= \033[1;34m
-GREEN		= \033[1;32m
-YELLOW		= \033[1;33m
+INC_DIR = -I./minilibx-linux
 
-OBJECTS = $(SOURCES:.c=.o)
 
-BOBJECTS = $(BSOURCES:.c=.o)
+SOURCES =	./parsing/cub3D.c \
+			./parsing/parsing_file.c \
+			./parsing/reading_map.c \
+			./parsing/ft_print.c \
+			./parsing/check_map.c \
+			./parsing/check_player.c \
+			./parsing/check_null.c \
+			./parsing/color_textur.c \
+			./parsing/map_error.c \
+			./cleaner.c \
+			./engine.c \
+			./engine_utils.c \
+			./init_data.c \
+			./input.c \
+			./main.c \
+			./minimap_engine.c \
+			./moves_utils.c \
+			./moves.c \
+			./minimap_utils.c \
+			./text.c \
+			./utils.c \
 
-all : $(NAME)
+OBJ = $(SOURCES:.c=.o)
 
-%.o: %.c
-#	@echo "$(B_GREEN)Compiling: $(GREEN)$(notdir $<) 🔨$(NC)"
-	@$(CC) $(CFLAGS) -c $< -o $@
-	@echo "$(PURPLE)█\033[0m\c"
+LIBS = -L$(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext 
 
-$(NAME): compile $(OBJECTS) $(LIBFT)libft.a  done 
-	@$(CC) $(READLINE) $(OBJECTS)  $(LIBFT)libft.a -o  $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJ) $(LIBFT)libft.a
+	$(CC) $(CFLAGS) $(INC_DIR) $(LIBFT)libft.a -o $(NAME) $(OBJ) $(LIBS)
+	echo "Compilation done"
 
 $(LIBFT)libft.a :
 	@make bonus -C $(LIBFT)
 
-clean :
-	@rm -f $(OBJECTS)
-	@rm -f $(BOBJECTS)
-	@echo "\033[0;33m•\033[0;33m\c"
-	@echo "$(B_RED)🧹 Cleaning: $(RED) Minishell object files $(NC)"
+clean:
+	rm -f $(OBJ)
 	@make clean -C $(LIBFT)
+	echo "Clean done"
 
-fclean : clean
-	@rm -f $(NAME)
-	@echo "\033[0;33m••\033[0;33m\c"
-	@echo "$(B_RED)🧹 Cleaning: $(RED) $(NAME) $(NC)"
+fclean: clean
+	rm -f $(NAME)
 	@make fclean -C $(LIBFT)
+	echo "Fclean done"
 
-re : fclean all
+re: fclean all
 
-compile	:
-			@echo "\n$(PURPLE)[X] Compiling $(PURPLE)cub3D$(NC)\n"
+.PHONY: all clean fclean re
 
-done	:
-			@echo "$(PURPLE) => 100%$(NC)\n"
