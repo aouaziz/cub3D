@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 14:28:18 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 11:34:15 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:43:52 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void	check_Map_Not_Closed(char **map)
 		check_First_last_Line(ft_strtrim(map[x], " "));
 		x--;
 	}
-    ft_Unknown_Character_in_Map(map);
-    check_Zero_Surroundings(map);
+	ft_Unknown_Character_in_Map(map);
+	check_Zero_Surroundings(map);
 }
-void ft_Unknown_Character_in_Map(char **map)
+void	ft_Unknown_Character_in_Map(char **map)
 {
-    int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (map[i])
@@ -55,28 +55,28 @@ void ft_Unknown_Character_in_Map(char **map)
 		}
 		i++;
 	}
-    check_Player_error(map);
+	check_Player_error(map);
 }
-void check_Player_error(char **map)
+void	check_Player_error(char **map)
 {
-    int	i;
-    int p;
+	int	i;
+	int	p;
 	int	j;
 
 	i = -1;
-    p = 0;
+	p = 0;
 	while (map[++i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'N' || map[i][j] == 'S'
-				|| map[i][j] == 'W' || map[i][j] == 'E')
-            {
-                validate_Player_Position(map, i, j);
+			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'
+				|| map[i][j] == 'E')
+			{
+				validate_Player_Position(map, i, j);
 				p++;
-            }
-            j++;
+			}
+			j++;
 		}
 	}
 	if (p > 1)
@@ -85,48 +85,27 @@ void check_Player_error(char **map)
 		ft_print_error("Player Not Found in Map\n");
 }
 
-void	check_Map_error_Line(char **line, int x)
-{
-	int	i;
-
-	i = 0;
-	while (line[x][i])
-	{
-		if (line[x][i] != '1' && line[x][i] != ' ' && line[x][i] != '\n')
-			ft_print_error("Invalid Map - Map Not Closed\n");
-        i++;
-	}
-}
-
-int	ft_skip_new_line(char **line, int y)
-{
-	if(!line[0])
-		ft_print_error("Invalid Map\n");
-	while (line [y] && line[y][0] == '\n')
-		y++;
-	return (y);
-}
 void	ft_check_is_map_empty(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
 	while (map[i])
 	{
-		if(ft_strchr(map[i],'1'))
+		if (ft_strchr(map[i], '1'))
 			j++;
 		i++;
 	}
-	if(j == 0)
+	if (j == 0)
 		ft_print_error("Invalid Map - Empty Map\n");
 }
 void	ft_check_new_line_error(char **map, int y)
 {
 	int	i;
 	int	find;
-	int j;
+	int	j;
 
 	i = y;
 	find = y;
@@ -137,8 +116,8 @@ void	ft_check_new_line_error(char **map, int y)
 	i--;
 	while (i > 0 && map[i])
 	{
-		if(map[i][0] != '\n')
-			break;
+		if (map[i][0] != '\n')
+			break ;
 		i--;
 	}
 	while (find > i && map[find])

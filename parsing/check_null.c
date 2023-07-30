@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:18:02 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 11:33:59 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:34:03 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	check_Zero_Surroundings(char **map)
 {
-	int		i;
-	int		j;
-	int		p;
+	int	i;
+	int	j;
+	int	p;
 
 	i = 0;
 	p = 0;
@@ -31,25 +31,27 @@ void	check_Zero_Surroundings(char **map)
 		}
 		i++;
 	}
-	
 }
 void	validate_Zero_Position(char **map, int i, int j)
 {
 	if (map[i + 1][j] == '\0' || map[i + 1][j] == '\n' || map[i + 1][j] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
-	else if (map[i - 1][j] == '\0' || map[i - 1][j] == '\n' || map[i - 1][j] == ' ')
+	else if (map[i - 1][j] == '\0' || map[i - 1][j] == '\n' || map[i
+			- 1][j] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
-	else if (map[i][j +1] == '\0' || map[i][j +1] == '\n' || map[i][j +1] == ' ')
+	else if (map[i][j + 1] == '\0' || map[i][j + 1] == '\n' || map[i][j
+			+ 1] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
-	else if (map[i][j -1] == '\0' || map[i][j -1] == '\n' || map[i][j -1] == ' ')
+	else if (map[i][j - 1] == '\0' || map[i][j - 1] == '\n' || map[i][j
+			- 1] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
 }
 void	check_First_last_Line(char *line)
 {
 	int	len;
-	
+
 	len = ft_strlen(line) - 1;
-	if(line[len] == '\n' )
+	if (line[len] == '\n')
 		len--;
 	while (len > 0 && line[len] == ' ')
 		len--;

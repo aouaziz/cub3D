@@ -6,12 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 07:19:58 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 11:31:50 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:38:32 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 int	ft_check_char(char c)
 {
@@ -26,12 +25,12 @@ t_cube	*check_Map_Lines(t_cube *cube)
 	cube = get_Map_width_And_Height(cube);
 	return (cube);
 }
-void	check_map_errors(int fd ,t_cube *cube)
+void	check_map_errors(int fd, t_cube *cube)
 {
 	char	*line;
-	int i;
-	int j;
-	char **map;
+	int		i;
+	int		j;
+	char	**map;
 
 	i = -1;
 	j = 0;
@@ -41,9 +40,9 @@ void	check_map_errors(int fd ,t_cube *cube)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if(j == 0 && start_Checking(line,0))
+		if (j == 0 && start_Checking(line, 0))
 			j++;
-		else if (j>0)
+		else if (j > 0)
 			map[++i] = ft_cub_strdup(line, cube->win_width + 1);
 		free(line);
 	}
@@ -51,4 +50,24 @@ void	check_map_errors(int fd ,t_cube *cube)
 	free(line);
 	start_Checking(NULL, 1);
 	check_Map_Not_Closed(map);
+}
+void	check_Map_error_Line(char **line, int x)
+{
+	int	i;
+
+	i = 0;
+	while (line[x][i])
+	{
+		if (line[x][i] != '1' && line[x][i] != ' ' && line[x][i] != '\n')
+			ft_print_error("Invalid Map - Map Not Closed\n");
+        i++;
+	}
+}
+int	ft_skip_new_line(char **line, int y)
+{
+	if(!line[0])
+		ft_print_error("Invalid Map\n");
+	while (line [y] && line[y][0] == '\n')
+		y++;
+	return (y);
 }

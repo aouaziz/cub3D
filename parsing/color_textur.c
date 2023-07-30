@@ -6,12 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:07:04 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 11:34:03 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:34:53 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 t_cube	*cube_textur_color(t_cube *cube, char *line)
 {
@@ -41,18 +40,19 @@ t_cube	*get_Texture(t_cube *cube, char *line)
 
 t_cube	*get_Color(t_cube *cube, char *line)
 {
-	char		**str;
-	char 		*tmp;
+	char	**str;
+	char	*tmp;
+
 	str = ft_split(line, ' ');
 	tmp = ft_strtrim(line, " ");
 	if (!ft_strncmp(str[0], "F", 2))
 	{
-		cube->texinfo.floor = ft_color_resolution(tmp +1);
+		cube->texinfo.floor = ft_color_resolution(tmp + 1);
 		cube->texinfo.size++;
 	}
 	else if (!ft_strncmp(str[0], "C", 2))
 	{
-		cube->texinfo.ceiling = ft_color_resolution(tmp +1);
+		cube->texinfo.ceiling = ft_color_resolution(tmp + 1);
 		cube->texinfo.size++;
 	}
 	if (cube->texinfo.size > 2)
@@ -63,13 +63,13 @@ t_cube	*get_Color(t_cube *cube, char *line)
 }
 t_cube	*add_textur(t_cube *cube, char *content, int type)
 {
-	if(type == NORTH)
+	if (type == NORTH)
 		cube->texinfo.north = ft_strdup(content);
-	else if(type == SOUTH)
+	else if (type == SOUTH)
 		cube->texinfo.south = ft_strdup(content);
-	else if(type == WEST)
+	else if (type == WEST)
 		cube->texinfo.west = ft_strdup(content);
-	else if(type == EAST)
+	else if (type == EAST)
 		cube->texinfo.east = ft_strdup(content);
 	return (cube);
 }

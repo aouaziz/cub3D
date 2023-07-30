@@ -6,12 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:14:33 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 11:34:01 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:34:12 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
 
 t_cube	*check_And_Set_Player_Position(t_cube *cube)
 {
@@ -38,8 +37,8 @@ t_cube	*check_And_Set_Player_Position(t_cube *cube)
 
 t_cube	*find_Player_Position(t_cube *cube)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
