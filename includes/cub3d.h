@@ -12,9 +12,10 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+#include <mlx.h>
 //# include <X11/keysym.h>
 // # include <X11/X.h>
-# include "minilibx-linux/mlx.h"
+//# include "minilibx-linux/mlx.h"
 
 # define SPEED 0.0125
 # define ESC_KEY 53
@@ -219,6 +220,7 @@ void				check_Map_Height_And_Width(char **map);
 t_cube				*get_Map_Height(t_cube *cube, int fd);
 int					get_Map_width(char *line);
 t_cube				*get_Map_width_And_Height(t_cube *cube);
+
 //check map error
 t_cube				*check_Map_Lines(t_cube *cube);
 int					ft_check_char(char c);

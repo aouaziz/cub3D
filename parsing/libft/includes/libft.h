@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 21:48:06 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/27 14:26:19 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:55:03 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_charjoin(char *s1, char s2);
 int					ft_strlen_array(char **array);
 int					ft_atoi_color(char *str);
-int					ft_color_resolution(char *str);
+int					*ft_color_resolution(char *str);
 char				*ft_strcpy(char *s1, const char *s2);
 void				ft_print_error(char *str);
 char				*ft_cub_strdup(const char *s1, int len);

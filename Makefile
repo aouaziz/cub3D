@@ -23,18 +23,18 @@ SOURCES =	./parsing/cub3D.c \
 			./parsing/check_null.c \
 			./parsing/color_textur.c \
 			./parsing/map_error.c \
-			./cleaner.c \
-			./engine.c \
-			./engine_utils.c \
-			./init_data.c \
-			./input.c \
-			./main.c \
-			./minimap_engine.c \
-			./moves_utils.c \
-			./moves.c \
-			./minimap_utils.c \
-			./text.c \
-			./utils.c \
+			./raycasting/cleaner.c \
+			./raycasting/engine.c \
+			./raycasting/raycasting/engine_utils.c \
+			./raycasting/init_data.c \
+			./raycasting/input.c \
+			./raycasting/main.c \
+			./raycasting/minimap_engine.c \
+			./raycasting/moves_utils.c \
+			./raycasting/moves.c \
+			./raycasting/minimap_utils.c \
+			./raycasting/text.c \
+			./raycasting/utils.c \
 
 OBJ = $(SOURCES:.c=.o)
 

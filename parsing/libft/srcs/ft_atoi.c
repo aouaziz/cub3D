@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:29:22 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/29 10:55:05 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 14:54:02 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int ft_checkerror(char *str)
 	return (1);
 }
 
-int	ft_color_resolution(char *str)
+int	*ft_color_resolution(char *str)
 {
 	int		i;
 	size_t	r;
@@ -90,7 +90,7 @@ int	ft_color_resolution(char *str)
 	r = (ft_atoi_color(tab[0])  * 65536) + ( ft_atoi_color(tab[1]) * 256) + ft_atoi_color(tab[2]);
 	free(line);
 	free_double_str(tab);
-	return (r);
+	return (&r);
 }
 
 int ft_atoi_color(char *str)
