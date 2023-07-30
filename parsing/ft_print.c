@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:12:00 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/30 14:52:49 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/30 15:08:06 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	print_textur(t_texinfo *textur)
 	printf("Type: south , File: %s\n", textur->south);
 	printf("Type: west , File: %s\n", textur->west);
 	printf("Type: east , File: %s\n", textur->east);
-	printf("Type: floor , File: %d\n", *(textur->floor));
-	printf("Type: ceiling , File: %d\n", *(textur->ceiling));
+	printf("Type: floor , File: %d\n", textur->floor);
+	printf("Type: ceiling , File: %d\n", textur->ceiling);
 }
 
 void	print_cube3d(t_cube *cube)

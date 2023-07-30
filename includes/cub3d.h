@@ -64,8 +64,8 @@ typedef struct s_texinfo
 	char			*south;
 	char			*west;
 	char			*east;
-	int				*floor;
-	int				*ceiling;
+	int				floor;
+	int				ceiling;
 	unsigned long	hex_floor;
 	unsigned long	hex_ceiling;
 	int				size;

@@ -9,7 +9,7 @@ MLX = libmlx.a
 CC = gcc
 #FSANITIZE = -fsanitize=address -g
 
-CFLAGS = -Wall -Wextra -Werror 
+#CFLAGS = -Wall -Wextra -Werror 
 
 INC_DIR = -I./minilibx-linux
 
@@ -25,7 +25,7 @@ SOURCES =	./parsing/cub3D.c \
 			./parsing/map_error.c \
 			./raycasting/cleaner.c \
 			./raycasting/engine.c \
-			./raycasting/raycasting/engine_utils.c \
+			./raycasting/engine_utils.c \
 			./raycasting/init_data.c \
 			./raycasting/input.c \
 			./raycasting/main.c \
