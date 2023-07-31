@@ -27,10 +27,10 @@ void	free_texinfo(t_texinfo *textures)
 		free(textures->west);
 	if (textures->east)
 		free(textures->east);
-	if (textures->floor)
-		free(textures->floor);
-	if (textures->ceiling)
-		free(textures->ceiling);
+	// if (textures->floor)
+	// 	free(textures->floor);
+	// if (textures->ceiling)
+	// 	free(textures->ceiling);
 }
 
 void	free_map(t_cube *cube)
@@ -62,8 +62,8 @@ void	clean_exit(t_cube *cube, int code)
 		mlx_destroy_window(cube->mlx, cube->win);
 	if (cube->mlx)
 	{
-		mlx_destroy_display(cube->mlx);
-		mlx_loop_end(cube->mlx);
+		/*mlx_destroy_display(cube->mlx);
+		mlx_loop_end(cube->mlx);*/
 		free(cube->mlx);
 	}
 	free_cube(cube);

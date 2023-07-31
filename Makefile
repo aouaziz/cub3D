@@ -7,11 +7,13 @@ LIBFT = ./parsing/libft/
 MLX = libmlx.a 
 
 CC = gcc
-#FSANITIZE = -fsanitize=address -g
+FSANITIZE = -fsanitize=address -g
 
 #CFLAGS = -Wall -Wextra -Werror 
 
 INC_DIR = -I./minilibx-linux
+
+MLX = -lmlx -framework OpenGL -framework AppKit
 
 
 SOURCES =	./parsing/cub3D.c \
@@ -43,7 +45,7 @@ LIBS = -L$(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)libft.a
-	$(CC) $(CFLAGS) $(INC_DIR) $(LIBFT)libft.a -o $(NAME) $(OBJ) $(LIBS)
+	$(CC) $(FSANITIZE) $(CFLAGS) ${MLX} $(LIBFT)libft.a -o $(NAME) $(OBJ) 
 	echo "Compilation done"
 
 $(LIBFT)libft.a :
