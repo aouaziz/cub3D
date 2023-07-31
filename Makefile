@@ -1,5 +1,7 @@
 NAME = Cub3d
 
+BNAME = Cub3d_Bonus
+
 MLX_DIR = minilibx-linux
 
 LIBFT = ./parsing/libft/
@@ -38,7 +40,20 @@ SOURCES =	./parsing/cub3D.c \
 			./raycasting/text.c \
 			./raycasting/utils.c \
 
+BSOURCES =	./Bonus/parsing/cub3D.c \
+			./Bonus/parsing/parsing_file.c \
+			./Bonus/parsing/reading_map.c \
+			./Bonus/parsing/ft_print.c \
+			./Bonus/parsing/check_map.c \
+			./Bonus/parsing/check_player.c \
+			./Bonus/parsing/check_null.c \
+			./Bonus/parsing/color_textur.c \
+			./Bonus/parsing/map_error.c \
+
+
 OBJ = $(SOURCES:.c=.o)
+
+BOBJ = $(BSOURCES:.c=.o)
 
 LIBS = -L$(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext 
 
@@ -51,13 +66,20 @@ $(NAME): $(OBJ) $(LIBFT)libft.a
 $(LIBFT)libft.a :
 	@make bonus -C $(LIBFT)
 
+bonus:$(BNAME)
+
+$(BNAME): $(BOBJ) $(LIBFT)libft.a
+	$(CC) $(FSANITIZE) $(CFLAGS) ${MLX} $(LIBFT)libft.a -o $(BNAME) $(BOBJ) 
+	echo "Bonus Compilation done"
+
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BOBJ)
 	@make clean -C $(LIBFT)
 	echo "Clean done"
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BNAME)
 	@make fclean -C $(LIBFT)
 	echo "Fclean done"
 
