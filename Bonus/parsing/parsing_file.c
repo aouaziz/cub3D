@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 06:58:32 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:48:10 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:18 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 
 int	ft_cub(char *c, int i)

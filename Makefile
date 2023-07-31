@@ -49,6 +49,18 @@ BSOURCES =	./Bonus/parsing/cub3D.c \
 			./Bonus/parsing/check_null.c \
 			./Bonus/parsing/color_textur.c \
 			./Bonus/parsing/map_error.c \
+			./Bonus/main.c \
+			./raycasting/cleaner.c \
+			./raycasting/engine.c \
+			./raycasting/engine_utils.c \
+			./raycasting/init_data.c \
+			./raycasting/input.c \
+			./raycasting/minimap_engine.c \
+			./raycasting/moves_utils.c \
+			./raycasting/moves.c \
+			./raycasting/minimap_utils.c \
+			./raycasting/text.c \
+			./raycasting/utils.c \
 
 
 OBJ = $(SOURCES:.c=.o)

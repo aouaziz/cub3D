@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:55:46 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:48:58 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:11 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 
 int	get_Map_width(char *line)

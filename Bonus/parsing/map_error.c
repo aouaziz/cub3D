@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 14:28:18 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:54:26 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:15 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 
 void	check_Map_Not_Closed(char **map)

@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:07:04 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:48:20 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:08 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 
 t_cube	*cube_textur_color(t_cube *cube, char *line)

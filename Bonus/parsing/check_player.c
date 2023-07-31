@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:14:33 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:48:21 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:06 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 t_cube	*check_And_Set_Player_Position(t_cube *cube)
 {

@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:47:52 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:21 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 t_cube	*get_Map_Height(t_cube *cube, int fd)
 {

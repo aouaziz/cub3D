@@ -6,11 +6,11 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:12:00 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 09:48:15 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 11:09:13 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "../../includes/cub3d_bonus.h"
 
 
 void	print_str(char **str)
