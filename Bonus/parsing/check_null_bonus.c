@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_null.c                                       :+:      :+:    :+:   */
+/*   check_null_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:18:02 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 11:14:47 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:01:46 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
 
-void	check_Zero_Door_Surroundings(char **map)
+void	check_Zero_Door_Surroundings_bonus(char **map)
 {
 	int	i;
 	int	j;
@@ -27,15 +27,15 @@ void	check_Zero_Door_Surroundings(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == '0')
-				validate_Zero_Position(map, i, j);
+				validate_Zero_Position_bonus(map, i, j);
 			else if(map[i][j] == 'D')
-				validate_Door_Position(map, i, j);
+				validate_Door_Position_bonus(map, i, j);
 			j++;
 		}
 		i++;
 	}
 }
-void	validate_Door_Position(char **map, int i, int j)
+void	validate_Door_Position_bonus(char **map, int i, int j)
 {
 	if (map[i + 1][j] == '\0' || map[i + 1][j] == '\n' || map[i + 1][j] == ' ')
 		ft_print_error("Invalid Map - Incorrect Door Position\n");
@@ -49,7 +49,7 @@ void	validate_Door_Position(char **map, int i, int j)
 			- 1] == ' ')
 		ft_print_error("Invalid Map - Incorrect Door Position\n");
 }
-void	validate_Zero_Position(char **map, int i, int j)
+void	validate_Zero_Position_bonus(char **map, int i, int j)
 {
 	if (map[i + 1][j] == '\0' || map[i + 1][j] == '\n' || map[i + 1][j] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
@@ -63,7 +63,7 @@ void	validate_Zero_Position(char **map, int i, int j)
 			- 1] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
 }
-void	check_First_last_Line(char *line)
+void	check_First_last_Line_bonus(char *line)
 {
 	int	len;
 

@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:07:04 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 08:14:01 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:20:45 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 t_cube	*cube_textur_color(t_cube *cube, char *line)
 {
 	cube = get_Texture(cube, line);
-	cube = get_Color(cube, line);
+	if(strchr(line, 'F') || ft_strchr(line, 'C'))
+		cube = get_Color(cube, line);
 	return (cube);
 }
 
@@ -42,7 +43,7 @@ t_cube	*get_Color(t_cube *cube, char *line)
 {
 	char	**str;
 	char	*tmp;
-
+	
 	str = ft_split(line, ' ');
 	tmp = ft_strtrim(line, " ");
 	if (!ft_strncmp(str[0], "F", 2))

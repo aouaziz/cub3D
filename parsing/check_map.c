@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 07:19:58 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 08:08:06 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 13:47:05 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_map_errors(int fd, t_cube *cube)
 
 	i = -1;
 	j = 0;
-	map = ft_calloc(cube->win_height, sizeof(char *));
+	map = ft_calloc(cube->mapinfo.height, sizeof(char *));
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -43,7 +43,7 @@ void	check_map_errors(int fd, t_cube *cube)
 		if (j == 0 && start_Checking(line, 0))
 			j++;
 		else if (j > 0)
-			map[++i] = ft_cub_strdup(line, cube->win_width + 1);
+			map[++i] = ft_cub_strdup(line, cube->mapinfo.width + 1);
 		free(line);
 	}
 	close(fd);

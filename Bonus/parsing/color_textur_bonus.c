@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_textur.c                                     :+:      :+:    :+:   */
+/*   color_textur_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:07:04 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 11:09:08 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:20:55 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
 
-t_cube	*cube_textur_color(t_cube *cube, char *line)
+t_cube	*cube_textur_color_bonus(t_cube *cube, char *line)
 {
-	cube = get_Texture(cube, line);
-	cube = get_Color(cube, line);
+	cube = get_Texture_bonus(cube, line);
+	if(strchr(line, 'F') || ft_strchr(line, 'C'))
+		cube = get_Color_bonus(cube, line);
 	return (cube);
 }
 
-t_cube	*get_Texture(t_cube *cube, char *line)
+t_cube	*get_Texture_bonus(t_cube *cube, char *line)
 {
 	char	**str;
 
@@ -28,18 +29,18 @@ t_cube	*get_Texture(t_cube *cube, char *line)
 		ft_print_error("Invalid Map - Tab Character Found\n");
 	str = ft_split(line, ' ');
 	if (!ft_strcmp(str[0], "NO "))
-		cube = add_textur(cube, str[1], NORTH);
+		cube = add_textur_bonus(cube, str[1], NORTH);
 	else if (!ft_strcmp(str[0], "SO "))
-		cube = add_textur(cube, str[1], SOUTH);
+		cube = add_textur_bonus(cube, str[1], SOUTH);
 	else if (!ft_strcmp(str[0], "WE "))
-		cube = add_textur(cube, str[1], WEST);
+		cube = add_textur_bonus(cube, str[1], WEST);
 	else if (!ft_strcmp(str[0], "EA "))
-		cube = add_textur(cube, str[1], EAST);
+		cube = add_textur_bonus(cube, str[1], EAST);
 	free_double_str(str);
 	return (cube);
 }
 
-t_cube	*get_Color(t_cube *cube, char *line)
+t_cube	*get_Color_bonus(t_cube *cube, char *line)
 {
 	char	**str;
 	char	*tmp;
@@ -62,7 +63,7 @@ t_cube	*get_Color(t_cube *cube, char *line)
 	free(tmp);
 	return (cube);
 }
-t_cube	*add_textur(t_cube *cube, char *content, int type)
+t_cube	*add_textur_bonus(t_cube *cube, char *content, int type)
 {
 	if (type == NORTH)
 		cube->texinfo.north = ft_strdup(content);

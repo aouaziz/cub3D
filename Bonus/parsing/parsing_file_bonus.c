@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_file.c                                     :+:      :+:    :+:   */
+/*   parsing_file_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 06:58:32 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 11:09:18 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:05:39 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_cub(char *c, int i)
 		return (0);
 }
 
-int	start_Map_Check(t_cube *cube)
+int	start_Map_Check_bonus(t_cube *cube)
 {
 	static int	i;
 	int			j;
@@ -46,15 +46,15 @@ int	start_Map_Check(t_cube *cube)
 		
 	return (0);
 }
-void	check_File_And_Read_it(char *file, t_cube *cube)
+void	check_File_And_Read_it_bonus(char *file, t_cube *cube)
 {
 	int	fd;
 
 	fd = open(file, O_RDONLY);
 	if (!ft_cub(file, ft_strlen(file)) || fd < 1)
 		ft_print_error("Invalid File\n");
-	cube = get_Map_Height(cube, fd);
+	cube = get_Map_Height_bonus(cube, fd);
 	fd = open(file, O_RDONLY);
-	check_map_errors(fd, cube);
-	Parse_map(cube);
+	check_map_errors_bonus(fd, cube);
+	Parse_map_bonus(cube);
 }

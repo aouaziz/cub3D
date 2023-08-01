@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:12:00 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/30 15:08:06 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 13:47:05 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	print_cube3d(t_cube *cube)
 	printf("Player: %c\n", cube->player.dir);
 	printf("X: %d\n", cube->player.move_x);
 	printf("Y: %d\n", cube->player.move_y);
-	printf("Map Length: %d\n", cube->win_width);
-	printf("Map Height: %d\n", cube->win_height);
+	printf("Map Length: %d\n", cube->mapinfo.width);
+	printf("Map Height: %d\n", cube->mapinfo.height);
 	printf("Map:\n");
 	print_str(cube->map);
 	printf("Textur:\n");

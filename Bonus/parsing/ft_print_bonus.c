@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_print_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:12:00 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 11:09:13 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:05:59 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
 
-void	print_str(char **str)
+void	print_str_bonus(char **str)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ void	print_str(char **str)
 		i++;
 	}
 }
-void	print_textur(t_texinfo *textur)
+void	print_textur_bonus(t_texinfo *textur)
 {
 	printf("Type: north , File: %s\n", textur->north);
 	printf("Type: south , File: %s\n", textur->south);
@@ -34,15 +34,15 @@ void	print_textur(t_texinfo *textur)
 	printf("Type: ceiling , File: %d\n", textur->ceiling);
 }
 
-void	print_cube3d(t_cube *cube)
+void	print_cube3d_bonus(t_cube *cube)
 {
 	printf("Player: %c\n", cube->player.dir);
 	printf("X: %d\n", cube->player.move_x);
 	printf("Y: %d\n", cube->player.move_y);
-	printf("Map Length: %d\n", cube->win_width);
-	printf("Map Height: %d\n", cube->win_height);
+	printf("Map Length: %d\n", cube->mapinfo.width);
+	printf("Map Height: %d\n", cube->mapinfo.height);
 	printf("Map:\n");
-	print_str(cube->map);
+	print_str_bonus(cube->map);
 	printf("Textur:\n");
-	print_textur(&cube->texinfo);
+	print_textur_bonus(&cube->texinfo);
 }

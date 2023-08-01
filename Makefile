@@ -40,16 +40,16 @@ SOURCES =	./parsing/cub3D.c \
 			./raycasting/text.c \
 			./raycasting/utils.c \
 
-BSOURCES =	./Bonus/parsing/cub3D.c \
-			./Bonus/parsing/parsing_file.c \
-			./Bonus/parsing/reading_map.c \
-			./Bonus/parsing/ft_print.c \
-			./Bonus/parsing/check_map.c \
-			./Bonus/parsing/check_player.c \
-			./Bonus/parsing/check_null.c \
-			./Bonus/parsing/color_textur.c \
-			./Bonus/parsing/map_error.c \
-			./Bonus/main.c \
+BSOURCES =	./Bonus/parsing/cub3D_bonus.c \
+			./Bonus/parsing/parsing_file_bonus.c \
+			./Bonus/parsing/reading_map_bonus.c \
+			./Bonus/parsing/ft_print_bonus.c \
+			./Bonus/parsing/check_map_bonus.c \
+			./Bonus/parsing/check_player_bonus.c \
+			./Bonus/parsing/check_null_bonus.c \
+			./Bonus/parsing/color_textur_bonus.c \
+			./Bonus/parsing/map_error_bonus.c \
+			./Bonus/main_bonus.c \
 			./raycasting/cleaner.c \
 			./raycasting/engine.c \
 			./raycasting/engine_utils.c \

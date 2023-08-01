@@ -16,6 +16,8 @@ void	start_Map(t_cube *cube)
 	if (cube->map[0] == NULL)
 		ft_print_error("Invalid Map\n");
 	cube = check_Map_Lines(cube);
+	print_cube3d(cube);
+	exit(0);
 	init_textures(cube);
 	render_images(cube);
 	listen_for_input(cube);

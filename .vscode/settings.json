@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "cub3d_bonus.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "libft.h": "c",
+        "errno.h": "c"
     }
 }

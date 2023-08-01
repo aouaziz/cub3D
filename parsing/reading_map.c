@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 08:14:49 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 13:47:21 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ t_cube	*get_Map_Height(t_cube *cube, int fd)
 			break ;
 		cube->t_map = ft_strjoin(cube->t_map, line);
 		width = ft_strlen(line);
-		if (width > cube->win_width)
-			cube->win_width = width;
+		if (width > cube->mapinfo.width)
+			cube->mapinfo.width = width;
 		height++;
 		free(line);
 	}
 	close(fd);
-	cube->win_height = height;
+	cube->mapinfo.height = height;
 	free(line);
 	return (cube);
 }

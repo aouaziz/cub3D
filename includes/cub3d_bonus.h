@@ -1,6 +1,7 @@
 #ifndef CUB3D_BONUS_H
 # define CUB3D_BONUS_H
 
+
 # include "../parsing/libft/includes/libft.h"
 # include <errno.h>
 # include <fcntl.h>
@@ -204,53 +205,53 @@ void				get_texture_index(t_cube *cube, t_ray *ray);
 void				update_texture_pixels(t_cube *cube, t_texinfo *tex,
 						t_ray *ray, int x);
 void				init_raycasting_info(int x, t_ray *ray, t_player *player);
-void				errMsg(char *message);
+void				errMsg_bonus(char *message);
 
 //parsing file
 int					ft_cub(char *c, int i);
-void				check_File_And_Read_it(char *file, t_cube *cube);
+void				check_File_And_Read_it_bonus(char *file, t_cube *cube);
 
 //reading map
-void				Parse_map(t_cube *cube);
-void				start_Map(t_cube *cube);
-void				check_Map_Height_And_Width(char **map);
-t_cube				*get_Map_Height(t_cube *cube, int fd);
-int					get_Map_width(char *line);
-t_cube				*get_Map_width_And_Height(t_cube *cube);
+void				Parse_map_bonus(t_cube *cube);
+void				start_Map_bonus(t_cube *cube);
+void				check_Map_Height_And_Width_bonus(char **map);
+t_cube				*get_Map_Height_bonus(t_cube *cube, int fd);
+int					get_Map_width_bonus(char *line);
+t_cube				*get_Map_width_And_Height_bonus(t_cube *cube);
 
 //check map error
-t_cube				*check_Map_Lines(t_cube *cube);
-int					ft_check_char(char c);
-void				check_Zero_Door_Surroundings(char **map);
-void				check_Map_Not_Closed(char **map);
-int					start_Map_Check(t_cube *cube);
-int					ft_skip_new_line(char **line, int y);
-int					start_Checking(char *line, int finish);
-void				check_map_errors(int fd, t_cube *cube);
-void				ft_check_is_map_empty(char **map);
-void				ft_Unknown_Character_in_Map(char **map);
-void				validate_Zero_Position(char **map, int i, int j);
-void				validate_Door_Position(char **map, int i, int j);
+t_cube				*check_Map_Lines_bonus(t_cube *cube);
+int					ft_check_char_bonus(char c);
+void				check_Zero_Door_Surroundings_bonus(char **map);
+void				check_Map_Not_Closed_bonus(char **map);
+int					start_Map_Check_bonus(t_cube *cube);
+int					ft_skip_new_line_bonus(char **line, int y);
+int					start_Checking_bonus(char *line, int finish);
+void				check_map_errors_bonus(int fd, t_cube *cube);
+void				ft_check_is_map_empty_bonus(char **map);
+void				ft_Unknown_Character_in_Map_bonus(char **map);
+void				validate_Zero_Position_bonus(char **map, int i, int j);
+void				validate_Door_Position_bonus(char **map, int i, int j);
 
 // check player error
-t_cube				*check_And_Set_Player_Position(t_cube *cube);
-t_cube				*find_Player_Position(t_cube *cube);
-void				validate_Player_Position(char **map, int i, int j);
-void				check_Player_error(char **map);
+t_cube				*check_And_Set_Player_Position_bonus(t_cube *cube);
+t_cube				*find_Player_Position_bonus(t_cube *cube);
+void				validate_Player_Position_bonus(char **map, int i, int j);
+void				check_Player_error_bonus(char **map);
 
 //color and textur
-t_cube				*cube_textur_color(t_cube *cube, char *line);
-t_cube				*get_Texture(t_cube *cube, char *line);
-t_cube				*get_Color(t_cube *cube, char *line);
-t_cube				*add_textur(t_cube *cube, char *content, int type);
+t_cube				*cube_textur_color_bonus(t_cube *cube, char *line);
+t_cube				*get_Texture_bonus(t_cube *cube, char *line);
+t_cube				*get_Color_bonus(t_cube *cube, char *line);
+t_cube				*add_textur_bonus(t_cube *cube, char *content, int type);
 
 // check lines error
-void				ft_check_new_line_error(char **map, int y);
-void				check_Map_error_Line(char **line, int x);
-void				check_First_last_Line(char *line);
+void				ft_check_new_line_error_bonus(char **map, int y);
+void				check_Map_error_Line_bonus(char **line, int x);
+void				check_First_last_Line_bonus(char *line);
 
 // print stract
-void				print_textur(t_texinfo *textur);
-void				print_cube3d(t_cube *cube);
-void				print_str(char **str);
+void				print_textur_bonus(t_texinfo *textur);
+void				print_cube3d_bonus(t_cube *cube);
+void				print_str_bonus(char **str);
 #endif

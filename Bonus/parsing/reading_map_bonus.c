@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reading_map.c                                      :+:      :+:    :+:   */
+/*   reading_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 11:09:21 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:03:05 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d_bonus.h"
 
-t_cube	*get_Map_Height(t_cube *cube, int fd)
+t_cube	*get_Map_Height_bonus(t_cube *cube, int fd)
 {
 	char	*line;
 	int		height;
@@ -28,17 +28,17 @@ t_cube	*get_Map_Height(t_cube *cube, int fd)
 			break ;
 		cube->t_map = ft_strjoin(cube->t_map, line);
 		width = ft_strlen(line);
-		if (width > cube->win_width)
-			cube->win_width = width;
+		if (width > cube->mapinfo.width)
+			cube->mapinfo.width = width;
 		height++;
 		free(line);
 	}
 	close(fd);
-	cube->win_height = height;
+	cube->mapinfo.height = height;
 	free(line);
 	return (cube);
 }
-void	check_Map_Height_And_Width(char **map)
+void	check_Map_Height_And_Width_bonus(char **map)
 {
 	int	x_len;
 	int	i;
@@ -62,7 +62,7 @@ int	ft_get_len(char **map)
 		i++;
 	return (i);
 }
-void	Parse_map(t_cube *cube)
+void	Parse_map_bonus(t_cube *cube)
 {
 	char	**map;
 	int		i;
@@ -76,8 +76,8 @@ void	Parse_map(t_cube *cube)
 	while (map[i])
 	{
 		if (j == 0)
-			cube = cube_textur_color(cube, map[i]);
-		if (start_Map_Check(cube))
+			cube = cube_textur_color_bonus(cube, map[i]);
+		if (start_Map_Check_bonus(cube))
 		{
 			cube->map[j] = ft_strdup(map[i]);
 			j++;
@@ -87,10 +87,10 @@ void	Parse_map(t_cube *cube)
 	free_double_str(map);
 	cube->texinfo.size = TEX;
 	cube->map[j] = NULL;
-	start_Map(cube);
+	start_Map_bonus(cube);
 }
 
-int	start_Checking(char *line, int finish)
+int	start_Checking_bonus(char *line, int finish)
 {
 	static int	status;
 

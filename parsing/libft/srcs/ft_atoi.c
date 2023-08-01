@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:29:22 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/30 15:07:09 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:37:01 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,7 @@ int	ft_atoi(const char *str)
 		return (0);
 	return (r * s);
 }
-static int ft_checkerror(char *str)
-{
-	int j;
-	j = 0;
 
-	while (*str)
-	{
-		if((*str >= '0' && *str <= '9') || (*str == ','))
-		{
-			if(*str == ',')
-				j++;
-		}
-		else if(ft_isalpha(*str))
-			return (0);
-		str++;
-	}
-	if(j != 2)
-		return (0);
-	return (1);
-}
 
 int	ft_color_resolution(char *str)
 {
@@ -79,9 +60,10 @@ int	ft_color_resolution(char *str)
 
 	i = 0;
 	r = 0;
-	line  = ft_strtrim(str," ");
-	if (!str || !ft_checkerror(str))
+	if (!str )
 		ft_print_error("Invalid Color Parameter\n");
+	line  = ft_strtrim(str," ");
+	ft_checkerror(line , 1);
 	tab =  ft_split(line, ',');
 	while(tab[i])
 		i++;
@@ -92,7 +74,33 @@ int	ft_color_resolution(char *str)
 	free_double_str(tab);
 	return (r);
 }
-
+void ft_checkerror(char *str , int j)
+{
+	int i;
+	i = 0;
+	if(j == 1)
+	{
+		j = 0;
+		while (str[i])
+		{
+			if(str[i] == ',')
+				j++;
+			i++;
+		}
+		if(j != 2)
+			ft_print_error("Invalid Color Parameter\n");
+		return;
+	}
+	while (str[i] == ' ' || str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if((str[i] >= '0' && str[i] <= '9'))
+			i++;
+		else 
+			ft_print_error("Invalid Color Parameter\n");
+	}
+}
 int ft_atoi_color(char *str)
 {
 	int i ;
@@ -100,10 +108,9 @@ int ft_atoi_color(char *str)
 	
 	i = 0;
 	r = 0;
-	if(str[i] == '-')
-		ft_print_error("Color Value Out of Range 0 -> 255\n");
+	ft_checkerror(str,0);
 	while(str[i] == '+')
-		i++;
+		i++; 
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		r = (r * 10) + (str[i] - '0');
