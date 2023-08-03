@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 13:47:21 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 07:32:08 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,21 @@ void	Parse_map(t_cube *cube)
 	j = 0;
 	cube->texinfo.size = 0;
 	map = ft_split(cube->t_map, '\n');
-	cube->map = malloc(sizeof(char *) * (ft_get_len(map) + 1));
+	cube->mapinfo.file = malloc(sizeof(char *) * (ft_get_len(map) + 1));
 	while (map[i])
 	{
 		if (j == 0)
 			cube = cube_textur_color(cube, map[i]);
 		if (start_Map_Check(cube))
 		{
-			cube->map[j] = ft_strdup(map[i]);
+			cube->mapinfo.file[j] = ft_strdup(map[i]);
 			j++;
 		}
 		i++;
 	}
 	free_double_str(map);
 	cube->texinfo.size = TEX;
-	cube->map[j] = NULL;
+	cube->mapinfo.file[j] = NULL;
 	start_Map(cube);
 }
 

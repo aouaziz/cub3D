@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 14:03:05 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 07:22:27 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ t_cube	*get_Map_Height_bonus(t_cube *cube, int fd)
 			break ;
 		cube->t_map = ft_strjoin(cube->t_map, line);
 		width = ft_strlen(line);
-		if (width > cube->mapinfo.width)
-			cube->mapinfo.width = width;
+		if (width > cube->mapinfo.fileinfo.width)
+			cube->mapinfo.fileinfo.width = width;
 		height++;
 		free(line);
 	}
 	close(fd);
-	cube->mapinfo.height = height;
+	cube->mapinfo.fileinfo.height = height;
 	free(line);
 	return (cube);
 }
@@ -72,21 +72,21 @@ void	Parse_map_bonus(t_cube *cube)
 	j = 0;
 	cube->texinfo.size = 0;
 	map = ft_split(cube->t_map, '\n');
-	cube->map = malloc(sizeof(char *) * (ft_get_len(map) + 1));
+	cube->mapinfo.file = malloc(sizeof(char *) * (ft_get_len(map) + 1));
 	while (map[i])
 	{
 		if (j == 0)
 			cube = cube_textur_color_bonus(cube, map[i]);
 		if (start_Map_Check_bonus(cube))
 		{
-			cube->map[j] = ft_strdup(map[i]);
+			cube->mapinfo.file[j] = ft_strdup(map[i]);
 			j++;
 		}
 		i++;
 	}
 	free_double_str(map);
 	cube->texinfo.size = TEX;
-	cube->map[j] = NULL;
+	cube->mapinfo.file[j] = NULL;
 	start_Map_bonus(cube);
 }
 

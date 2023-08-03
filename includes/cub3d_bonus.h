@@ -1,8 +1,8 @@
 #ifndef CUB3D_BONUS_H
 # define CUB3D_BONUS_H
 
-
 # include "../parsing/libft/includes/libft.h"
+//#include "cub3d.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
@@ -32,7 +32,7 @@
 # define SCREEN_WIDTH 640
 # define SCREEN_HEIGHT 480
 # define ROT 0.015
-
+# define Size 10
 # define TEX 64
 
 enum				e_index
@@ -54,6 +54,7 @@ typedef struct s_img
 	int				pixel_bits;
 	int				size_line;
 	int				endian;
+	char			*add;
 }					t_img;
 
 typedef struct s_texinfo
@@ -205,7 +206,6 @@ void				get_texture_index(t_cube *cube, t_ray *ray);
 void				update_texture_pixels(t_cube *cube, t_texinfo *tex,
 						t_ray *ray, int x);
 void				init_raycasting_info(int x, t_ray *ray, t_player *player);
-void				errMsg_bonus(char *message);
 
 //parsing file
 int					ft_cub(char *c, int i);
@@ -254,4 +254,9 @@ void				check_First_last_Line_bonus(char *line);
 void				print_textur_bonus(t_texinfo *textur);
 void				print_cube3d_bonus(t_cube *cube);
 void				print_str_bonus(char **str);
+//mini map test
+void				ft_mlx_put_color(void *mlx_ptr, void *mlx_win, int color, int x, int y);
+void				ft_start_drawing(t_cube *cube, int i, int j);
+void				ft_mini_map(t_cube *cube);
+
 #endif

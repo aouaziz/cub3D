@@ -16,7 +16,10 @@ void	init_texture_pixels(t_cube *cube)
 		cube->texture_pixels[i] = ft_calloc(cube->win_width + 1,
 				sizeof * cube->texture_pixels);
 		if (!cube->texture_pixels[i])
+		{
+			printf("texture_pixels Error\n");
 			clean_exit(cube, 1);
+		}
 		i++;
 	}
 }
@@ -27,7 +30,10 @@ void	init_texture_img(t_cube *cube, t_img *image, char *path)
 	image->img = mlx_xpm_file_to_image(cube->mlx, path, &cube->texinfo.size,
 			&cube->texinfo.size);
 	if (image->img == NULL)
-		clean_exit(cube, 1);
+	{
+		ft_print_error("Invalid Texture Path \n");
+		//clean_exit(cube, 1);
+	}
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
 	return ;
@@ -69,13 +75,14 @@ void	init_textures(t_cube *cube)
 	cube->textures = ft_calloc(5, sizeof * cube->textures);
 	if (!cube->textures)
     {
-        printf("Error\n");
+        printf("textures Error\n");
 		clean_exit(cube, 1);
-    }
+	}
     cube->textures[NORTH] = xpm_to_img(cube, cube->texinfo.north);
 	cube->textures[SOUTH] = xpm_to_img(cube, cube->texinfo.south);
 	cube->textures[EAST] = xpm_to_img(cube, cube->texinfo.east);
 	cube->textures[WEST] = xpm_to_img(cube, cube->texinfo.west);
+	printf("Loading textures...\n");
 }
 
 void	init_texinfo(t_texinfo *textures)

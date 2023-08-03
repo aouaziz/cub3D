@@ -35,6 +35,7 @@
 # define SCREEN_HEIGHT 480
 # define ROT 0.015
 
+
 # define TEX 64
 
 enum				e_index
@@ -64,8 +65,8 @@ typedef struct s_texinfo
 	char			*south;
 	char			*west;
 	char			*east;
-	int				floor;
-	int				ceiling;
+	int				*floor;
+	int				*ceiling;
 	unsigned long	hex_floor;
 	unsigned long	hex_ceiling;
 	int				size;

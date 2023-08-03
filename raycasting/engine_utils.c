@@ -25,7 +25,10 @@ void	init_img(t_cube *cube, t_img *image, int width, int height)
 	init_img_clean(image);
 	image->img = mlx_new_image(cube->mlx, width, height);
 	if (image->img == NULL)
+	{
+		printf("image Error\n");	
 		clean_exit(cube, 1);
+	}
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
 	return ;
