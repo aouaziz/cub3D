@@ -255,7 +255,7 @@ void				print_textur_bonus(t_texinfo *textur);
 void				print_cube3d_bonus(t_cube *cube);
 void				print_str_bonus(char **str);
 //mini map test
-void				ft_mlx_put_color(void *mlx_ptr, void *mlx_win, int color, int x, int y);
+void	ft_mlx_put_color(t_cube *cube, int color,int x, int y);
 void				ft_start_drawing(t_cube *cube, int i, int j);
 void				ft_mini_map(t_cube *cube);
 

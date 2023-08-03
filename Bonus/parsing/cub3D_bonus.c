@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:55:46 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 07:22:27 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ t_cube	*get_Map_width_And_Height_bonus(t_cube *cube)
 	int	x_len;
 	int	height;
 	
-	cube->mapinfo.fileinfo.height = 0;
-	cube->mapinfo.fileinfo.width = 0;
+	cube->mapinfo.height = 0;
+	cube->mapinfo.width = 0;
 	height = 0;
-	while (cube->mapinfo.file[height])
+	while (cube->map[height])
 	{
-		x_len = get_Map_width_bonus(cube->mapinfo.file[cube->mapinfo.fileinfo.height]);
-		if (x_len > cube->mapinfo.fileinfo.width)
-			cube->mapinfo.fileinfo.width = x_len;
-		cube->mapinfo.fileinfo.height++;
+		x_len = get_Map_width_bonus(cube->map[cube->mapinfo.height]);
+		if (x_len > cube->mapinfo.width)
+			cube->mapinfo.width = x_len;
+		cube->mapinfo.height++;
 		height++;
 	}
-	while (cube->mapinfo.file[cube->mapinfo.fileinfo.height - 1][0] == '\n')
-		cube->mapinfo.fileinfo.height--;
+	while (cube->map[cube->mapinfo.height - 1][0] == '\n')
+		cube->mapinfo.height--;
 	return (cube);
 }

@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:14:33 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 07:22:27 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ t_cube	*check_And_Set_Player_Position(t_cube *cube)
 	int	j;
 
 	i = 0;
-	while (cube->mapinfo.file[i])
+	while (cube->map[i])
 	{
 		j = 0;
-		while (cube->mapinfo.file[i][j])
+		while (cube->map[i][j])
 		{
-			if (cube->mapinfo.file[i][j] == 'N' || cube->mapinfo.file[i][j] == 'S'
-				|| cube->mapinfo.file[i][j] == 'W' ||
-				cube->mapinfo.file[i][j] == 'E')
-				cube->player.dir = cube->mapinfo.file[i][j];
+			if (cube->map[i][j] == 'N' || cube->map[i][j] == 'S'
+				|| cube->map[i][j] == 'W' ||
+				cube->map[i][j] == 'E')
+				cube->player.dir = cube->map[i][j];
 			j++;
 		}
 		i++;
@@ -42,16 +42,16 @@ t_cube	*find_Player_Position(t_cube *cube)
 
 	i = 0;
 	j = 0;
-	while (cube->mapinfo.file[i])
+	while (cube->map[i])
 	{
 		j = 0;
-		while (cube->mapinfo.file[i][j])
+		while (cube->map[i][j])
 		{
-			if (cube->mapinfo.file[i][j] == cube->player.dir)
+			if (cube->map[i][j] == cube->player.dir)
 				break ;
 			j++;
 		}
-		if (cube->mapinfo.file[i][j] == cube->player.dir)
+		if (cube->map[i][j] == cube->player.dir)
 			break ;
 		i++;
 	}

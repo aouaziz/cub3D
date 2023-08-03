@@ -34,6 +34,8 @@
 # define SCREEN_WIDTH 640
 # define SCREEN_HEIGHT 480
 # define ROT 0.015
+# define YELLOW "\x1B[33m"
+# define RESET "\x1B[37m"
 
 
 # define TEX 64

@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:55:46 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 07:27:40 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ t_cube	*get_Map_width_And_Height(t_cube *cube)
 	cube->mapinfo.height = 0;
 	cube->mapinfo.width = 0;
 	height = 0;
-	while (cube->mapinfo.file[height])
+	while (cube->map[height])
 	{
-		x_len = get_Map_width(cube->mapinfo.file[cube->mapinfo.height]);
+		x_len = get_Map_width(cube->map[cube->mapinfo.height]);
 		if (x_len > cube->mapinfo.width)
 			cube->mapinfo.width = x_len;
 		cube->mapinfo.height++;
 		height++;
 	}
-	while (cube->mapinfo.file[cube->mapinfo.height - 1][0] == '\n')
+	while (cube->map[cube->mapinfo.height - 1][0] == '\n')
 		cube->mapinfo.height--;
 	cube->mapinfo.line_count = cube->mapinfo.height;
 	return (cube);

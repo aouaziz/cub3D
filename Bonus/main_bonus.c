@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 09:56:46 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 07:22:27 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	start_Map_bonus(t_cube *cube)
 {
-	if (cube->mapinfo.file[0] == NULL)
+	if (cube->map[0] == NULL)
 		ft_print_error("Invalid Map\n");
 	cube = check_Map_Lines_bonus(cube);
 	print_cube3d_bonus(cube);
@@ -22,6 +22,7 @@ void	start_Map_bonus(t_cube *cube)
 	 cube->win = mlx_new_window(cube->mlx,1080, 1920, "Cub3D");
 	if(cube->win == NULL)	
 	   ft_print_error("Error: something wrong !!!");
+	/*ft_mini_map is just test*/
 	ft_mini_map(cube);
     // ft_put_mini_map(cube);
 	// init_textures(cube);
@@ -74,7 +75,7 @@ void	ft_mini_map(t_cube *cube)
 	cube->minimap.add = mlx_get_data_addr(cube->mlx, &cube->minimap.pixel_bits, &cube->minimap.size_line, &cube->minimap.endian);
 	printf("%d\n", cube->player.move_x);
 	printf("%d\n", cube->player.move_y);
-	ft_mlx_put_color(cube, 0x00FF0000, cube->player.move_x, cube->player.move_y);
+	ft_mlx_put_color(cube, 0x00FF0000, 0, 0);
 	mlx_put_image_to_window(cube->mlx, cube->win, cube->minimap.img, 0, 0);
 	
 }
@@ -82,20 +83,20 @@ void	ft_mini_map(t_cube *cube)
 // void ft_start_drawing(t_cube *cube,int i, int j)
 // {
 // 
-	// while ( cube->mapinfo.file[x])
+	// while ( cube->map[x])
 	// {
 		// if(x == i + 5)
 			// break;
 		// y = j - 5;
-		// while (cube->mapinfo.file[x][y] && y < j + 5)
+		// while (cube->map[x][y] && y < j + 5)
 		// {
-			// if (cube->mapinfo.file[x][y] == '1')
+			// if (cube->map[x][y] == '1')
 				// ft_mlx_put_color(cube->mlx, cube->win, 0x005E5C64, x, y);
-			// else if (cube->mapinfo.file[x][y] == cube->player.dir)
+			// else if (cube->map[x][y] == cube->player.dir)
 				// ft_mlx_put_color(cube->mlx, cube->win,0x0000FF00, x, y);
-			// else if (cube->mapinfo.file[x][y] == 'D')
+			// else if (cube->map[x][y] == 'D')
 				// ft_mlx_put_color(cube->mlx, cube->win,0x00FF0000, x, y);
-			// else if (cube->mapinfo.file[x][y] == '0')
+			// else if (cube->map[x][y] == '0')
 				// ft_mlx_put_color(cube->mlx, cube->win,0x008BB5F8, x, y);
 			// y++;
 		// }
@@ -108,14 +109,14 @@ void	ft_mlx_put_color(t_cube *cube, int color,int x, int y)
 	int i;
 	int j;
 
-	i = y;
-	while (i < y * Size)
+	i = 0;
+	while (i < 10)
 	{
-		j = x;
-		while (j < x * Size)
+		j = 0;
+		while (j < 10)
 		{
 			
-			my_mlx_pixel_put(&cube->minimap, j, i, color);
+			my_mlx_pixel_put(&cube->minimap, x +  j , y + i, color);
 			j++;
 		}
 		i++;
