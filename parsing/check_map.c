@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 07:19:58 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 07:23:56 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:55:21 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ void	check_Map_error_Line(char **line, int x)
 	{
 		if (line[x][i] != '1' && line[x][i] != ' ' && line[x][i] != '\n')
 			ft_print_error("Invalid Map - Map Not Closed\n");
-        i++;
+		i++;
 	}
 }
 int	ft_skip_new_line(char **line, int y)
 {
-	if(!line[0])
+	if (!line[0])
 		ft_print_error("Invalid Map\n");
-	while (line [y] && line[y][0] == '\n')
+	while (line[y] && line[y][0] == '\n')
 		y++;
 	return (y);
 }

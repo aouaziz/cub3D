@@ -16,7 +16,7 @@ void	set_frame_image_pixel(t_cube *cube, t_img *image, int x, int y)
 		set_image_pixel(image, x, y, cube->texture_pixels[y][x]);
 	else if (y < cube->win_height / 2)
 		set_image_pixel(image, x, y, cube->texinfo.hex_ceiling);
-	else if (y < cube->win_height -1)
+	else if (y < cube->win_height - 1)
 		set_image_pixel(image, x, y, cube->texinfo.hex_floor);
 }
 
@@ -26,7 +26,7 @@ void	init_img(t_cube *cube, t_img *image, int width, int height)
 	image->img = mlx_new_image(cube->mlx, width, height);
 	if (image->img == NULL)
 	{
-		printf("image Error\n");	
+		printf("image Error\n");
 		clean_exit(cube, 1);
 	}
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
@@ -36,9 +36,9 @@ void	init_img(t_cube *cube, t_img *image, int width, int height)
 
 void	render_frame(t_cube *cube)
 {
-	t_img	image;
-	int		x;
-	int		y;
+	t_img image;
+	int x;
+	int y;
 
 	image.img = NULL;
 	init_img(cube, &image, cube->win_width, cube->win_height);

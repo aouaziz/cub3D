@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 06:58:32 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/31 08:12:19 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:55:44 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	start_Map_Check(t_cube *cube)
 	}
 	else if (j == 4 && cube->texinfo.size == 2)
 		return (1);
-		
 	return (0);
 }
 void	check_File_And_Read_it(char *file, t_cube *cube)

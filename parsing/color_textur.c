@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:07:04 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 14:45:35 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:55:33 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_cube	*cube_textur_color(t_cube *cube, char *line)
 {
 	cube = get_Texture(cube, line);
-	if(strchr(line, 'F') || ft_strchr(line, 'C'))
+	if (strchr(line, 'F') || ft_strchr(line, 'C'))
 		cube = get_Color(cube, line);
 	return (cube);
 }
@@ -43,7 +43,7 @@ t_cube	*get_Color(t_cube *cube, char *line)
 {
 	char	**str;
 	char	*tmp;
-	
+
 	str = ft_split(line, ' ');
 	tmp = ft_strtrim(line, " ");
 	if (!ft_strncmp(str[0], "F", 2))
@@ -64,7 +64,7 @@ t_cube	*get_Color(t_cube *cube, char *line)
 }
 t_cube	*add_textur(t_cube *cube, char *content, int type)
 {
-	if(content == NULL)
+	if (content == NULL)
 		ft_print_error("Invalid Texture Path\n");
 	if (type == NORTH)
 		cube->texinfo.north = ft_strdup(content);

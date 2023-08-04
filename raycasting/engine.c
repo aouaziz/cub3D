@@ -63,8 +63,7 @@ void	perform_RC(t_cube *cube, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (ray->map_y < 0.25
-			|| ray->map_x < 0.25
+		if (ray->map_y < 0.25 || ray->map_x < 0.25
 			|| ray->map_y > cube->mapinfo.height - 0.25
 			|| ray->map_x > cube->mapinfo.width - 1.25)
 			break ;

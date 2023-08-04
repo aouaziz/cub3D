@@ -11,7 +11,7 @@ bool	is_valid_pos_in_map(t_cube *cube, double x, double y)
 {
 	if (x < 0.25 || x >= cube->mapinfo.width - 1.25)
 		return (false);
-	if (y < 0.25 || y >= cube->mapinfo.height -0.25)
+	if (y < 0.25 || y >= cube->mapinfo.height - 0.25)
 		return (false);
 	return (true);
 }
@@ -60,8 +60,8 @@ int	rotate_left_right(t_cube *cube, double rotspeed)
 
 int	rotate(t_cube *cube, double rotdir)
 {
-	int		moved;
-	double	rotspeed;
+	int moved;
+	double rotspeed;
 
 	moved = 0;
 	rotspeed = ROT * rotdir;

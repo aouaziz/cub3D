@@ -12,7 +12,7 @@ char	*add_minimap_line(t_cube *cube, t_minimap *m, int y)
 	char	*line;
 	int		x;
 
-	line = ft_calloc(m->size + 1, sizeof * line);
+	line = ft_calloc(m->size + 1, sizeof *line);
 	if (!line)
 		return (NULL);
 	x = 0;
@@ -22,7 +22,7 @@ char	*add_minimap_line(t_cube *cube, t_minimap *m, int y)
 			|| !is_valid_map_coord(x + m->offset_x, cube->mapinfo.width))
 			line[x] = '\0';
 		else if ((int)cube->player.pos_x == (x + m->offset_x)
-			&& (int)cube->player.pos_y == (y + m->offset_y))
+				&& (int)cube->player.pos_y == (y + m->offset_y))
 			line[x] = 'P';
 		else if (cube->map[y + m->offset_y][x + m->offset_x] == '1')
 			line[x] = '1';
@@ -40,7 +40,7 @@ char	**generate_minimap(t_cube *cube, t_minimap *minimap)
 	char	**mmap;
 	int		y;
 
-	mmap = ft_calloc(minimap->size + 1, sizeof * mmap);
+	mmap = ft_calloc(minimap->size + 1, sizeof *mmap);
 	if (!mmap)
 		return (NULL);
 	y = 0;
@@ -68,7 +68,7 @@ int	get_MM_offset(t_minimap *minimap, int mapsize, int pos)
 
 void	render_minimap(t_cube *cube)
 {
-	t_minimap	minimap;
+	t_minimap minimap;
 
 	minimap.map = NULL;
 	minimap.img = &cube->minimap;
@@ -76,9 +76,11 @@ void	render_minimap(t_cube *cube)
 	minimap.size = (2 * minimap.view_dist) + 1;
 	minimap.tile_size = MM_PIXEL_SIZE / (2 * minimap.view_dist);
 	minimap.offset_x = get_MM_offset(&minimap,
-			cube->mapinfo.width, (int)cube->player.pos_x);
+										cube->mapinfo.width,
+										(int)cube->player.pos_x);
 	minimap.offset_y = get_MM_offset(&minimap,
-			cube->mapinfo.height, (int)cube->player.pos_y);
+										cube->mapinfo.height,
+										(int)cube->player.pos_y);
 	minimap.map = generate_minimap(cube, &minimap);
 	if (!minimap.map)
 	{

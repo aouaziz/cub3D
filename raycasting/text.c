@@ -7,14 +7,14 @@ void	init_texture_pixels(t_cube *cube)
 	if (cube->texture_pixels)
 		free_tab((void **)cube->texture_pixels);
 	cube->texture_pixels = ft_calloc(cube->win_height + 1,
-			sizeof * cube->texture_pixels);
+										sizeof *cube->texture_pixels);
 	if (!cube->texture_pixels)
 		clean_exit(cube, 1);
 	i = 0;
 	while (i < cube->win_height)
 	{
 		cube->texture_pixels[i] = ft_calloc(cube->win_width + 1,
-				sizeof * cube->texture_pixels);
+											sizeof *cube->texture_pixels);
 		if (!cube->texture_pixels[i])
 		{
 			printf("texture_pixels Error\n");
@@ -39,7 +39,7 @@ void	init_texture_img(t_cube *cube, t_img *image, char *path)
 	return ;
 }
 
-int *xpm_to_img(t_cube *cube, char *path)
+int	*xpm_to_img(t_cube *cube, char *path)
 {
 	t_img	tmp;
 	int		*buffer;
@@ -48,20 +48,21 @@ int *xpm_to_img(t_cube *cube, char *path)
 
 	init_texture_img(cube, &tmp, path);
 	buffer = ft_calloc(1,
-			sizeof * buffer * cube->texinfo.size * cube->texinfo.size);
+						sizeof *buffer * cube->texinfo.size
+							* cube->texinfo.size);
 	if (!buffer)
-    {
-        printf("Error\n");
+	{
+		printf("Error\n");
 		clean_exit(cube, 1);
-    }
+	}
 	y = 0;
 	while (y < cube->texinfo.size)
 	{
 		x = 0;
 		while (x < cube->texinfo.size)
 		{
-			buffer[y * cube->texinfo.size + x]
-				= tmp.addr[y * cube->texinfo.size + x];
+			buffer[y * cube->texinfo.size + x] = tmp.addr[y * cube->texinfo.size
+				+ x];
 			++x;
 		}
 		y++;
@@ -72,13 +73,13 @@ int *xpm_to_img(t_cube *cube, char *path)
 
 void	init_textures(t_cube *cube)
 {
-	cube->textures = ft_calloc(5, sizeof * cube->textures);
+	cube->textures = ft_calloc(5, sizeof *cube->textures);
 	if (!cube->textures)
-    {
-        printf("textures Error\n");
+	{
+		printf("textures Error\n");
 		clean_exit(cube, 1);
 	}
-    cube->textures[NORTH] = xpm_to_img(cube, cube->texinfo.north);
+	cube->textures[NORTH] = xpm_to_img(cube, cube->texinfo.north);
 	cube->textures[SOUTH] = xpm_to_img(cube, cube->texinfo.south);
 	cube->textures[EAST] = xpm_to_img(cube, cube->texinfo.east);
 	cube->textures[WEST] = xpm_to_img(cube, cube->texinfo.west);

@@ -42,7 +42,7 @@ static int	move_right(t_cube *cube)
 
 int	move_player(t_cube *cube)
 {
-	int	moved;
+	int moved;
 
 	moved = 0;
 	if (cube->player.move_y == 1)

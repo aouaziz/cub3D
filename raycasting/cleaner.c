@@ -27,10 +27,10 @@ void	free_texinfo(t_texinfo *textures)
 		free(textures->west);
 	if (textures->east)
 		free(textures->east);
-	 if (textures->floor)
-	 	free(textures->floor);
-	 if (textures->ceiling)
-	 	free(textures->ceiling);
+	if (textures->floor)
+		free(textures->floor);
+	if (textures->ceiling)
+		free(textures->ceiling);
 }
 
 void	free_map(t_cube *cube)

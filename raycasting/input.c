@@ -47,8 +47,8 @@ int	key_release(int key, t_cube *cube)
 void	listen_for_input(t_cube *cube)
 {
 	mlx_hook(cube->win, 33, 0L, ft_quit, cube);
-	mlx_hook(cube->win, 2, (1L<<0), key_press, cube);
-	mlx_hook(cube->win, 3, (1L<<1), key_release, cube);
+	mlx_hook(cube->win, 2, (1L << 0), key_press, cube);
+	mlx_hook(cube->win, 3, (1L << 1), key_release, cube);
 }
 
 int	engine(t_cube *cube)

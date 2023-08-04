@@ -5,6 +5,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <math.h>
+# include <mlx.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -12,10 +13,6 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
-#include <mlx.h>
-//# include <X11/keysym.h>
-// # include <X11/X.h>
-//# include "minilibx-linux/mlx.h"
 
 # define SPEED 0.0125
 # define ESC_KEY 53
@@ -36,7 +33,6 @@
 # define ROT 0.015
 # define YELLOW "\x1B[33m"
 # define RESET "\x1B[37m"
-
 
 # define TEX 64
 
@@ -59,6 +55,7 @@ typedef struct s_img
 	int				pixel_bits;
 	int				size_line;
 	int				endian;
+	char			*add;
 }					t_img;
 
 typedef struct s_texinfo
