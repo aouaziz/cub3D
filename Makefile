@@ -34,7 +34,7 @@ SOURCES =	./parsing/cub3D.c \
 			./raycasting/minimap_utils.c \
 			./raycasting/text.c \
 			./raycasting/utils.c \
-
+			./raycasting/player_pos.c
 
 
 OBJ = $(SOURCES:.c=.o)

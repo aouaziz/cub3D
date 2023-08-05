@@ -1,6 +1,14 @@
-
-
 #include "../includes/cub3d.h"
+
+/*
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+*/
 
 void	set_image_pixel(t_img *image, int x, int y, int color)
 {
@@ -12,6 +20,7 @@ void	set_image_pixel(t_img *image, int x, int y, int color)
 
 void	set_frame_image_pixel(t_cube *cube, t_img *image, int x, int y)
 {
+	//printf("%d\n\n",cube->texture_pixels[y][x]);
 	if (cube->texture_pixels[y][x] > 0)
 		set_image_pixel(image, x, y, cube->texture_pixels[y][x]);
 	else if (y < cube->win_height / 2)

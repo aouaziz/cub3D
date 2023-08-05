@@ -49,9 +49,9 @@ int	move_player(t_cube *cube)
 		moved += move_forward(cube);
 	if (cube->player.move_y == -1)
 		moved += move_backward(cube);
-	if (cube->player.move_x == -1)
-		moved += move_left(cube);
 	if (cube->player.move_x == 1)
+		moved += move_left(cube);
+	if (cube->player.move_x == -1)
 		moved += move_right(cube);
 	if (cube->player.rotate != 0)
 		moved += rotate(cube, cube->player.rotate);

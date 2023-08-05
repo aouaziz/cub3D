@@ -26,7 +26,8 @@ void	init_texture_pixels(t_cube *cube)
 
 void	init_texture_img(t_cube *cube, t_img *image, char *path)
 {
-	init_img_clean(image);
+
+	init_img_clean(image); 
 	image->img = mlx_xpm_file_to_image(cube->mlx, path, &cube->texinfo.size,
 			&cube->texinfo.size);
 	if (image->img == NULL)
@@ -79,11 +80,11 @@ void	init_textures(t_cube *cube)
 		printf("textures Error\n");
 		clean_exit(cube, 1);
 	}
+	//printf("North = %s\n South = %s\n east = %s\n West = %s\n", cube->texinfo.north, cube->texinfo.south, cube->texinfo.east, cube->texinfo.west);
 	cube->textures[NORTH] = xpm_to_img(cube, cube->texinfo.north);
 	cube->textures[SOUTH] = xpm_to_img(cube, cube->texinfo.south);
 	cube->textures[EAST] = xpm_to_img(cube, cube->texinfo.east);
 	cube->textures[WEST] = xpm_to_img(cube, cube->texinfo.west);
-	printf("Loading textures...\n");
 }
 
 void	init_texinfo(t_texinfo *textures)

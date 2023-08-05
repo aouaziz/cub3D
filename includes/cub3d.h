@@ -14,7 +14,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-# define SPEED 0.0125
+# define SPEED 0.1
 # define ESC_KEY 53
 # define S_KEY 1
 # define A_KEY 2
@@ -30,7 +30,7 @@
 # define MM_COLOR_SPACE 0x404040
 # define SCREEN_WIDTH 640
 # define SCREEN_HEIGHT 480
-# define ROT 0.015
+# define ROT 0.1
 # define YELLOW "\x1B[33m"
 # define RESET "\x1B[37m"
 
@@ -255,4 +255,7 @@ void				check_First_last_Line(char *line);
 void				print_textur(t_texinfo *textur);
 void				print_cube3d(t_cube *cube);
 void				print_str(char **str);
+
+void				init_player_direction(t_cube *cube);
+
 #endif

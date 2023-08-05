@@ -18,9 +18,7 @@ bool	is_valid_pos_in_map(t_cube *cube, double x, double y)
 
 bool	is_valid_pos(t_cube *cube, double x, double y)
 {
-	if (is_valid_pos_in_map(cube, x, y))
-		return (true);
-	if (is_valid_pos_wall_collision(cube, x, y))
+	if (is_valid_pos_in_map(cube, x, y) && is_valid_pos_wall_collision(cube, x, y))
 		return (true);
 	return (false);
 }
@@ -65,6 +63,6 @@ int	rotate(t_cube *cube, double rotdir)
 
 	moved = 0;
 	rotspeed = ROT * rotdir;
-	moved += rotate_left_right(cube, rotspeed);
+	moved += rotate_left_right(cube, -rotspeed);
 	return (moved);
 }

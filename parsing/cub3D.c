@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mmalih <mmalih@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 18:55:46 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/04 21:11:13 by mmalih           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char *av[])
 		ft_print_error("Incorrect Number of Arguments\n");
 	check_File_And_Read_it(av[1], &cube);
 }
+
 t_cube	*get_Map_width_And_Height(t_cube *cube)
 {
 	int	x_len;
