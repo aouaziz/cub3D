@@ -6,7 +6,7 @@ MLX = libmlx.a
 
 CC = gcc 
 
-FSANITIZE = -fsanitize=address -g
+#FSANITIZE = -fsanitize=address -g
 
 CFLAGS = -Wall -Wextra -Werror
 
