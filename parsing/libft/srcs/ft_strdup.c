@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 08:31:14 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/28 14:18:43 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 03:51:16 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,23 @@ char	*ft_strdup(const char *s1)
 	s = ft_memcpy(s, s1, slen);
 	return (s);
 }
+
 char	*ft_cstrdup(const char *s1)
 {
 	char	*s;
 	size_t	slen;
 
 	slen = ft_strlen(s1) + 1;
-	s = ft_calloc(slen , sizeof(char));
+	s = ft_calloc(slen, sizeof(char));
 	if (!s)
 		return (0);
 	s = ft_memcpy(s, s1, slen);
 	return (s);
 }
-char	*ft_cub_strdup(const char *s1,int len)
+
+char	*ft_cub_strdup(const char *s1, int len)
 {
-	int	i;
+	int		i;
 	char	*ptr;
 
 	i = 0;

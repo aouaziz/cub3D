@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 04:13:19 by aouaziz           #+#    #+#             */
+/*   Updated: 2023/08/06 04:17:19 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -14,7 +26,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-# define SPEED 0.1
+# define SPEED 0.4
 # define ESC_KEY 53
 # define S_KEY 1
 # define A_KEY 2
@@ -30,7 +42,7 @@
 # define MM_COLOR_SPACE 0x404040
 # define SCREEN_WIDTH 640
 # define SCREEN_HEIGHT 480
-# define ROT 0.1
+# define ROT 0.3
 # define YELLOW "\x1B[33m"
 # define RESET "\x1B[37m"
 
@@ -185,8 +197,8 @@ char				*add_minimap_line(t_cube *cube, t_minimap *m, int y);
 bool				is_valid_map_coord(int coord, int size);
 void				render_minimap_image(t_cube *cube, t_minimap *minimap);
 void				draw_minimap(t_minimap *minimap);
-void	set_minimap_border_image_pixels(t_minimap *minimap,
-										int color);
+void				set_minimap_border_image_pixels(t_minimap *minimap,
+						int color);
 void				draw_minimap_tile(t_minimap *minimap, int x, int y);
 void				set_minimap_tile_pixels(t_minimap *minimap, int x, int y,
 						int color);
@@ -207,49 +219,49 @@ void				get_texture_index(t_cube *cube, t_ray *ray);
 void				update_texture_pixels(t_cube *cube, t_texinfo *tex,
 						t_ray *ray, int x);
 void				init_raycasting_info(int x, t_ray *ray, t_player *player);
-void				errMsg(char *message);
+void				errmsg(char *message);
 
 //parsing file
 int					ft_cub(char *c, int i);
-void				check_File_And_Read_it(char *file, t_cube *cube);
+void				check_file_and_read_it(char *file, t_cube *cube);
 
 //reading map
-void				Parse_map(t_cube *cube);
-void				start_Map(t_cube *cube);
-void				check_Map_Height_And_Width(char **map);
-t_cube				*get_Map_Height(t_cube *cube, int fd);
-int					get_Map_width(char *line);
-t_cube				*get_Map_width_And_Height(t_cube *cube);
+void				parse_map(t_cube *cube);
+void				start_map(t_cube *cube);
+
+t_cube				*get_map_height(t_cube *cube, int fd);
+int					get_map_width(char *line);
+t_cube				*get_map_width_and_height(t_cube *cube);
 
 //check map error
-t_cube				*check_Map_Lines(t_cube *cube);
+t_cube				*check_map_lines(t_cube *cube);
 int					ft_check_char(char c);
-void				check_Zero_Surroundings(char **map);
-void				check_Map_Not_Closed(char **map);
-int					start_Map_Check(t_cube *cube);
+void				check_zero_surroundings(char **map);
+void				check_map_not_closed(char **map);
+int					start_map_check(t_cube *cube);
 int					ft_skip_new_line(char **line, int y);
-int					start_Checking(char *line, int finish);
+int					start_checking(char *line, int finish);
 void				check_map_errors(int fd, t_cube *cube);
 void				ft_check_is_map_empty(char **map);
-void				ft_Unknown_Character_in_Map(char **map);
-void				validate_Zero_Position(char **map, int i, int j);
+void				ft_unknown_character_in_map(char **map);
+void				validate_zero_position(char **map, int i, int j);
 
 // check player error
-t_cube				*check_And_Set_Player_Position(t_cube *cube);
-t_cube				*find_Player_Position(t_cube *cube);
-void				validate_Player_Position(char **map, int i, int j);
-void				check_Player_error(char **map);
+t_cube				*check_and_set_player_position(t_cube *cube);
+t_cube				*find_player_position(t_cube *cube);
+void				validate_player_position(char **map, int i, int j);
+void				check_player_error(char **map);
 
 //color and textur
 t_cube				*cube_textur_color(t_cube *cube, char *line);
-t_cube				*get_Texture(t_cube *cube, char *line);
-t_cube				*get_Color(t_cube *cube, char *line);
+t_cube				*get_texture(t_cube *cube, char *line);
+t_cube				*get_color(t_cube *cube, char *line);
 t_cube				*add_textur(t_cube *cube, char *content, int type);
 
 // check lines error
 void				ft_check_new_line_error(char **map, int y);
-void				check_Map_error_Line(char **line, int x);
-void				check_First_last_Line(char *line);
+void				check_map_error_line(char **line, int x);
+void				check_first_last_line(char *line);
 
 // print stract
 void				print_textur(t_texinfo *textur);
@@ -257,5 +269,6 @@ void				print_cube3d(t_cube *cube);
 void				print_str(char **str);
 
 void				init_player_direction(t_cube *cube);
+void				ft_buffer_error(int *buffer, t_cube *cube);
 
 #endif

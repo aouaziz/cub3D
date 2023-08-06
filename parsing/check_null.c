@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:18:02 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/30 14:34:03 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:11:43 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	check_Zero_Surroundings(char **map)
+void	check_zero_surroundings(char **map)
 {
 	int	i;
 	int	j;
@@ -26,13 +26,14 @@ void	check_Zero_Surroundings(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == '0')
-				validate_Zero_Position(map, i, j);
+				validate_zero_position(map, i, j);
 			j++;
 		}
 		i++;
 	}
 }
-void	validate_Zero_Position(char **map, int i, int j)
+
+void	validate_zero_position(char **map, int i, int j)
 {
 	if (map[i + 1][j] == '\0' || map[i + 1][j] == '\n' || map[i + 1][j] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
@@ -46,7 +47,8 @@ void	validate_Zero_Position(char **map, int i, int j)
 			- 1] == ' ')
 		ft_print_error("Invalid Map - Incorrect '0' Position\n");
 }
-void	check_First_last_Line(char *line)
+
+void	check_first_last_line(char *line)
 {
 	int	len;
 

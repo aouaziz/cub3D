@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:06:49 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/27 14:49:47 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 03:51:40 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ t_free	*ft_lstnew_free(void *content)
 
 void	*ft_malloc(int size)
 {
-	void	*ptr;
-    static t_free *lst;
-	t_free	*new;
+	void			*ptr;
+	static t_free	*lst;
+	t_free			*new;
 
 	ptr = malloc(size);
 	if (!ptr)

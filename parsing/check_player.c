@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:14:33 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 19:37:31 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:13:02 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-t_cube	*check_And_Set_Player_Position(t_cube *cube)
+t_cube	*check_and_set_player_position(t_cube *cube)
 {
 	int	i;
 	int	j;
@@ -31,11 +31,11 @@ t_cube	*check_And_Set_Player_Position(t_cube *cube)
 		}
 		i++;
 	}
-	cube = find_Player_Position(cube);
+	cube = find_player_position(cube);
 	return (cube);
 }
 
-t_cube	*find_Player_Position(t_cube *cube)
+t_cube	*find_player_position(t_cube *cube)
 {
 	int	i;
 	int	j;
@@ -48,18 +48,19 @@ t_cube	*find_Player_Position(t_cube *cube)
 		while (cube->map[i][j])
 		{
 			if (cube->map[i][j] == cube->player.dir)
-				break ;
+			{
+				cube->player.pos_x = i + 0.5;
+				cube->player.pos_y = j + 0.5;
+				return (cube);
+			}
 			j++;
 		}
-		if (cube->map[i][j] == cube->player.dir)
-			break ;
 		i++;
 	}
-	cube->player.pos_x = i;
-	cube->player.pos_y = j + 1;
 	return (cube);
 }
-void	validate_Player_Position(char **map, int i, int j)
+
+void	validate_player_position(char **map, int i, int j)
 {
 	if (map[i + 1][j] != '0' && map[i + 1][j] != '1')
 		ft_print_error("Invalid Map - Incorrect Player Position\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmalih <mmalih@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 06:58:32 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/04 22:19:55 by mmalih           ###   ########.fr       */
+/*   Updated: 2023/08/06 04:07:40 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_cub(char *c, int i)
 {
-	if (c[i - 1] == 'b' && c[i - 2] == 'u' && c[i - 3] == 'c' && c[i
-		- 4] == '.')
+	if (c[i - 1] == 'b' && c[i - 2] == 'u' && c[i - 3] == 'c'
+		&& c[i - 4] == '.')
 		return (1);
 	else
 		return (0);
 }
 
-int	start_Map_Check(t_cube *cube)
+int	start_map_check(t_cube *cube)
 {
 	static int	i;
 	int			j;
@@ -44,15 +44,16 @@ int	start_Map_Check(t_cube *cube)
 		return (1);
 	return (0);
 }
-void	check_File_And_Read_it(char *file, t_cube *cube)
+
+void	check_file_and_read_it(char *file, t_cube *cube)
 {
 	int	fd;
 
 	fd = open(file, O_RDONLY);
 	if (!ft_cub(file, ft_strlen(file)) || fd < 1)
 		ft_print_error("Invalid File\n");
-	cube = get_Map_Height(cube, fd);
+	cube = get_map_height(cube, fd);
 	fd = open(file, O_RDONLY);
 	check_map_errors(fd, cube);
-	Parse_map(cube);
+	parse_map(cube);
 }

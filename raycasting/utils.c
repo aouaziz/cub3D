@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:54:03 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 04:14:27 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 void	get_texture_index(t_cube *cube, t_ray *ray)
@@ -57,7 +69,7 @@ void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 	ray->deltadist_y = fabs(1 / ray->dir_y);
 }
 
-void	errMsg(char *message)
+void	errmsg(char *message)
 {
 	ft_putstr_fd("Error : \n", 1);
 	ft_putstr_fd(message, 1);

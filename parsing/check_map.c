@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 07:19:58 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/04 14:55:21 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:12:21 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int	ft_check_char(char c)
 	return (1);
 }
 
-t_cube	*check_Map_Lines(t_cube *cube)
+t_cube	*check_map_lines(t_cube *cube)
 {
-	cube = check_And_Set_Player_Position(cube);
-	cube = get_Map_width_And_Height(cube);
+	cube = check_and_set_player_position(cube);
+	cube = get_map_width_and_height(cube);
 	return (cube);
 }
+
 void	check_map_errors(int fd, t_cube *cube)
 {
 	char	*line;
@@ -40,7 +41,7 @@ void	check_map_errors(int fd, t_cube *cube)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if (j == 0 && start_Checking(line, 0))
+		if (j == 0 && start_checking(line, 0))
 			j++;
 		else if (j > 0)
 			map[++i] = ft_cub_strdup(line, cube->mapinfo.width + 1);
@@ -48,10 +49,11 @@ void	check_map_errors(int fd, t_cube *cube)
 	}
 	close(fd);
 	free(line);
-	start_Checking(NULL, 1);
-	check_Map_Not_Closed(map);
+	start_checking(NULL, 1);
+	check_map_not_closed(map);
 }
-void	check_Map_error_Line(char **line, int x)
+
+void	check_map_error_line(char **line, int x)
 {
 	int	i;
 
@@ -63,6 +65,7 @@ void	check_Map_error_Line(char **line, int x)
 		i++;
 	}
 }
+
 int	ft_skip_new_line(char **line, int y)
 {
 	if (!line[0])

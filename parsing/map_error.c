@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 14:28:18 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/30 14:43:52 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:12:21 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	check_Map_Not_Closed(char **map)
+void	check_map_not_closed(char **map)
 {
 	int	x;
 	int	y;
@@ -20,22 +20,23 @@ void	check_Map_Not_Closed(char **map)
 	x = 0;
 	y = ft_skip_new_line(map, 0);
 	ft_check_new_line_error(map, y);
-	check_Map_error_Line(map, y);
+	check_map_error_line(map, y);
 	while (map[x])
 		x++;
 	x = x - 1;
 	while (map[x][0] == '\n')
 		x--;
-	check_Map_error_Line(map, x);
+	check_map_error_line(map, x);
 	while (x != y)
 	{
-		check_First_last_Line(ft_strtrim(map[x], " "));
+		check_first_last_line(ft_strtrim(map[x], " "));
 		x--;
 	}
-	ft_Unknown_Character_in_Map(map);
-	check_Zero_Surroundings(map);
+	ft_unknown_character_in_map(map);
+	check_zero_surroundings(map);
 }
-void	ft_Unknown_Character_in_Map(char **map)
+
+void	ft_unknown_character_in_map(char **map)
 {
 	int	i;
 	int	j;
@@ -55,9 +56,10 @@ void	ft_Unknown_Character_in_Map(char **map)
 		}
 		i++;
 	}
-	check_Player_error(map);
+	check_player_error(map);
 }
-void	check_Player_error(char **map)
+
+void	check_player_error(char **map)
 {
 	int	i;
 	int	p;
@@ -73,7 +75,7 @@ void	check_Player_error(char **map)
 			if (map[i][j] == 'N' || map[i][j] == 'S' || map[i][j] == 'W'
 				|| map[i][j] == 'E')
 			{
-				validate_Player_Position(map, i, j);
+				validate_player_position(map, i, j);
 				p++;
 			}
 			j++;
@@ -101,6 +103,7 @@ void	ft_check_is_map_empty(char **map)
 	if (j == 0)
 		ft_print_error("Invalid Map - Empty Map\n");
 }
+
 void	ft_check_new_line_error(char **map, int y)
 {
 	int	i;

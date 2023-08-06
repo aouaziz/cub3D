@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 16:49:31 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/03 19:41:12 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:13:55 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-t_cube	*get_Map_Height(t_cube *cube, int fd)
+t_cube	*get_map_height(t_cube *cube, int fd)
 {
 	char	*line;
 	int		height;
@@ -38,21 +38,7 @@ t_cube	*get_Map_Height(t_cube *cube, int fd)
 	free(line);
 	return (cube);
 }
-void	check_Map_Height_And_Width(char **map)
-{
-	int	x_len;
-	int	i;
-	int	max_len;
 
-	i = 0;
-	while (map[i])
-	{
-		x_len = ft_strlen(map[i]);
-		if (x_len > max_len)
-			max_len = x_len;
-		i++;
-	}
-}
 int	ft_get_len(char **map)
 {
 	int	i;
@@ -62,7 +48,8 @@ int	ft_get_len(char **map)
 		i++;
 	return (i);
 }
-void	Parse_map(t_cube *cube)
+
+void	parse_map(t_cube *cube)
 {
 	char	**map;
 	int		i;
@@ -77,7 +64,7 @@ void	Parse_map(t_cube *cube)
 	{
 		if (j == 0)
 			cube = cube_textur_color(cube, map[i]);
-		if (start_Map_Check(cube))
+		if (start_map_check(cube))
 		{
 			cube->map[j] = ft_strdup(map[i]);
 			j++;
@@ -87,10 +74,10 @@ void	Parse_map(t_cube *cube)
 	free_double_str(map);
 	cube->texinfo.size = TEX;
 	cube->map[j] = NULL;
-	start_Map(cube);
+	start_map(cube);
 }
 
-int	start_Checking(char *line, int finish)
+int	start_checking(char *line, int finish)
 {
 	static int	status;
 

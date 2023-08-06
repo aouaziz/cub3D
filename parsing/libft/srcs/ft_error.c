@@ -6,13 +6,13 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 06:10:40 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/07/28 15:43:57 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 03:52:06 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	 ft_print_error(char *str)
+void	ft_print_error(char *str)
 {
 	printf("\033[91m%s", str);
 	exit(1);

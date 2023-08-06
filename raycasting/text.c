@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   text.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:53:58 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 03:34:43 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 void	init_texture_pixels(t_cube *cube)
@@ -7,14 +19,14 @@ void	init_texture_pixels(t_cube *cube)
 	if (cube->texture_pixels)
 		free_tab((void **)cube->texture_pixels);
 	cube->texture_pixels = ft_calloc(cube->win_height + 1,
-										sizeof *cube->texture_pixels);
+			sizeof * cube->texture_pixels);
 	if (!cube->texture_pixels)
 		clean_exit(cube, 1);
 	i = 0;
 	while (i < cube->win_height)
 	{
 		cube->texture_pixels[i] = ft_calloc(cube->win_width + 1,
-											sizeof *cube->texture_pixels);
+				sizeof * cube->texture_pixels);
 		if (!cube->texture_pixels[i])
 		{
 			printf("texture_pixels Error\n");
@@ -26,14 +38,13 @@ void	init_texture_pixels(t_cube *cube)
 
 void	init_texture_img(t_cube *cube, t_img *image, char *path)
 {
-
-	init_img_clean(image); 
+	init_img_clean(image);
 	image->img = mlx_xpm_file_to_image(cube->mlx, path, &cube->texinfo.size,
 			&cube->texinfo.size);
 	if (image->img == NULL)
 	{
 		ft_print_error("Invalid Texture Path \n");
-		//clean_exit(cube, 1);
+		clean_exit(cube, 1);
 	}
 	image->addr = (int *)mlx_get_data_addr(image->img, &image->pixel_bits,
 			&image->size_line, &image->endian);
@@ -48,14 +59,9 @@ int	*xpm_to_img(t_cube *cube, char *path)
 	int		y;
 
 	init_texture_img(cube, &tmp, path);
-	buffer = ft_calloc(1,
-						sizeof *buffer * cube->texinfo.size
-							* cube->texinfo.size);
-	if (!buffer)
-	{
-		printf("Error\n");
-		clean_exit(cube, 1);
-	}
+	buffer = ft_calloc(1, sizeof * buffer * cube->texinfo.size
+			* cube->texinfo.size);
+	ft_buffer_error(buffer, cube);
 	y = 0;
 	while (y < cube->texinfo.size)
 	{
@@ -74,13 +80,12 @@ int	*xpm_to_img(t_cube *cube, char *path)
 
 void	init_textures(t_cube *cube)
 {
-	cube->textures = ft_calloc(5, sizeof *cube->textures);
+	cube->textures = ft_calloc(5, sizeof * cube->textures);
 	if (!cube->textures)
 	{
 		printf("textures Error\n");
 		clean_exit(cube, 1);
 	}
-	//printf("North = %s\n South = %s\n east = %s\n West = %s\n", cube->texinfo.north, cube->texinfo.south, cube->texinfo.east, cube->texinfo.west);
 	cube->textures[NORTH] = xpm_to_img(cube, cube->texinfo.north);
 	cube->textures[SOUTH] = xpm_to_img(cube, cube->texinfo.south);
 	cube->textures[EAST] = xpm_to_img(cube, cube->texinfo.east);

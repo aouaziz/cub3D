@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:29:22 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/01 14:37:01 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 03:52:36 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,67 +50,70 @@ int	ft_atoi(const char *str)
 	return (r * s);
 }
 
-
 int	ft_color_resolution(char *str)
 {
 	int		i;
 	size_t	r;
-	char **tab;
-	char *line;
+	char	**tab;
+	char	*line;
 
 	i = 0;
 	r = 0;
-	if (!str )
+	if (!str)
 		ft_print_error("Invalid Color Parameter\n");
-	line  = ft_strtrim(str," ");
-	ft_checkerror(line , 1);
-	tab =  ft_split(line, ',');
-	while(tab[i])
+	line = ft_strtrim(str, " ");
+	ft_checkerror(line, 1);
+	tab = ft_split(line, ',');
+	while (tab[i])
 		i++;
-	if(i != 3 || tab[2][0] == '\n')
+	if (i != 3 || tab[2][0] == '\n')
 		ft_print_error("Invalid Color Parameter\n");
-	r = (ft_atoi_color(tab[0])  * 65536) + ( ft_atoi_color(tab[1]) * 256) + ft_atoi_color(tab[2]);
+	r = (ft_atoi_color(tab[0]) * 65536) + (ft_atoi_color(tab[1]) * 256)
+		+ ft_atoi_color(tab[2]);
 	free(line);
 	free_double_str(tab);
 	return (r);
 }
-void ft_checkerror(char *str , int j)
+
+void	ft_checkerror(char *str, int j)
 {
-	int i;
+	int	i;
+
 	i = 0;
-	if(j == 1)
+	if (j == 1)
 	{
 		j = 0;
 		while (str[i])
 		{
-			if(str[i] == ',')
+			if (str[i] == ',')
 				j++;
 			i++;
 		}
-		if(j != 2)
+		if (j != 2)
 			ft_print_error("Invalid Color Parameter\n");
-		return;
+		return ;
 	}
 	while (str[i] == ' ' || str[i] == '+')
 		i++;
 	while (str[i])
 	{
-		if((str[i] >= '0' && str[i] <= '9'))
+		if ((str[i] >= '0' && str[i] <= '9'))
 			i++;
-		else 
+		else
 			ft_print_error("Invalid Color Parameter\n");
 	}
 }
-int ft_atoi_color(char *str)
+
+int	ft_atoi_color(char *str)
 {
-	int i ;
+	int		i;
 	size_t	r;
-	
+
 	i = 0;
 	r = 0;
-	ft_checkerror(str,0);
-	while(str[i] == '+')
-		i++; 
+	ft_checkerror(str, 0);
+	while (str[i] == '+')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		r = (r * 10) + (str[i] - '0');
@@ -120,4 +123,3 @@ int ft_atoi_color(char *str)
 		ft_print_error("Color Value Out of Range 0 -> 255\n");
 	return (r);
 }
-

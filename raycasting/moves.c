@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:53:46 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 03:34:35 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 static int	move_forward(t_cube *cube)
@@ -42,7 +54,7 @@ static int	move_right(t_cube *cube)
 
 int	move_player(t_cube *cube)
 {
-	int moved;
+	int	moved;
 
 	moved = 0;
 	if (cube->player.move_y == 1)

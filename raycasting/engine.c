@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:52:38 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 03:34:18 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 void	calculate_line_height(t_ray *ray, t_cube *cube, t_player *player)
@@ -20,7 +32,7 @@ void	calculate_line_height(t_ray *ray, t_cube *cube, t_player *player)
 	ray->wall_x -= floor(ray->wall_x);
 }
 
-void	set_RC(t_ray *ray, t_player *player)
+void	set_rc(t_ray *ray, t_player *player)
 {
 	if (ray->dir_x < 0)
 	{
@@ -44,7 +56,7 @@ void	set_RC(t_ray *ray, t_player *player)
 	}
 }
 
-void	perform_RC(t_cube *cube, t_ray *ray)
+void	perform_rc(t_cube *cube, t_ray *ray)
 {
 	int	hit;
 
@@ -82,8 +94,8 @@ int	raycasting(t_player *player, t_cube *cube)
 	while (x < cube->win_width)
 	{
 		init_raycasting_info(x, &ray, player);
-		set_RC(&ray, player);
-		perform_RC(cube, &ray);
+		set_rc(&ray, player);
+		perform_rc(cube, &ray);
 		calculate_line_height(&ray, cube, player);
 		update_texture_pixels(cube, &cube->texinfo, &ray, x);
 		x++;

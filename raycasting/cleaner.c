@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleaner.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:52:53 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 03:50:23 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 void	free_tab(void **tab)
@@ -61,11 +73,7 @@ void	clean_exit(t_cube *cube, int code)
 	if (cube->win && cube->mlx)
 		mlx_destroy_window(cube->mlx, cube->win);
 	if (cube->mlx)
-	{
-		/*mlx_destroy_display(cube->mlx);
-		mlx_loop_end(cube->mlx);*/
 		free(cube->mlx);
-	}
 	free_cube(cube);
 	exit(code);
 }

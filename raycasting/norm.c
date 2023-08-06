@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 16:36:59 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/06 03:50:38 by aouaziz          ###   ########.fr       */
+/*   Created: 2023/08/06 03:23:43 by aouaziz           #+#    #+#             */
+/*   Updated: 2023/08/06 04:16:23 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/cub3d.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_buffer_error(int *buffer, t_cube *cube)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && src[i])
+	if (!buffer)
 	{
-		dest[i] = src[i];
-		i++;
+		printf("Error\n");
+		clean_exit(cube, 1);
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
 }
 
-char	*ft_strcpy(char *s1, const char *s2)
+int	rotate(t_cube *cube, double rotdir)
 {
-	size_t	cur;
+	int		moved;
+	double	rotspeed;
 
-	cur = 0;
-	while (s2[cur] != '\0')
-	{
-		s1[cur] = s2[cur];
-		cur++;
-	}
-	s1[cur] = '\0';
-	return (s1);
+	moved = 0;
+	rotspeed = ROT * rotdir;
+	moved += rotate_left_right(cube, -rotspeed);
+	return (moved);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:53:28 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 04:13:55 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 void	init_mlx(t_cube *cube)
@@ -12,14 +24,13 @@ void	init_mlx(t_cube *cube)
 	return ;
 }
 
-void	start_Map(t_cube *cube)
+void	start_map(t_cube *cube)
 {
 	if (cube->map[0] == NULL)
 		ft_print_error("Invalid Map\n");
-	cube = check_Map_Lines(cube);
+	cube = check_map_lines(cube);
 	init_mlx(cube);
 	init_player_direction(cube);
-	print_cube3d(cube);
 	init_textures(cube);
 	render_images(cube);
 	listen_for_input(cube);

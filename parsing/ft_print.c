@@ -6,7 +6,7 @@
 /*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:12:00 by aouaziz           #+#    #+#             */
-/*   Updated: 2023/08/04 14:55:39 by aouaziz          ###   ########.fr       */
+/*   Updated: 2023/08/06 04:09:14 by aouaziz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	print_str(char **str)
 	}
 	printf("\n");
 }
+
 void	print_textur(t_texinfo *textur)
 {
 	printf("Type: north , File: %s\n", textur->north);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aouaziz <aouaziz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/05 22:53:41 by mmalih            #+#    #+#             */
+/*   Updated: 2023/08/06 03:28:30 by aouaziz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/cub3d.h"
 
 bool	is_valid_pos_wall_collision(t_cube *cube, double x, double y)
@@ -18,7 +30,8 @@ bool	is_valid_pos_in_map(t_cube *cube, double x, double y)
 
 bool	is_valid_pos(t_cube *cube, double x, double y)
 {
-	if (is_valid_pos_in_map(cube, x, y) && is_valid_pos_wall_collision(cube, x, y))
+	if (is_valid_pos_in_map(cube, x, y) && is_valid_pos_wall_collision(cube, x,
+			y))
 		return (true);
 	return (false);
 }
@@ -54,15 +67,4 @@ int	rotate_left_right(t_cube *cube, double rotspeed)
 	p->plane_x = p->plane_x * cos(rotspeed) - p->plane_y * sin(rotspeed);
 	p->plane_y = tmp_x * sin(rotspeed) + p->plane_y * cos(rotspeed);
 	return (1);
-}
-
-int	rotate(t_cube *cube, double rotdir)
-{
-	int moved;
-	double rotspeed;
-
-	moved = 0;
-	rotspeed = ROT * rotdir;
-	moved += rotate_left_right(cube, -rotspeed);
-	return (moved);
 }
